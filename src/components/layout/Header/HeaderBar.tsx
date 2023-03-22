@@ -1,4 +1,5 @@
 import React from "react";
+import { useEffect } from "react";
 
 interface Props {
   cryptos: number;
@@ -9,29 +10,31 @@ interface Props {
 }
 
 export const HeaderBar = ({ cryptos, exchanges, totalVolume, dayVolume, marketDominance }: Props) => {
-  const dominanceEntries = Object.entries(marketDominance).splice(0, 2);
-
   return (
-    <div className="flex items-center h-8 border-b overflow-x-auto w-full whitespace-nowrap text-xs">
+    <div className="flex items-center h-8 border-b overflow-x-auto w-full whitespace-nowrap text-xs gap-2">
       <p>
-        Criptomoedas: <span className="text-blue-400">{cryptos}</span>
+        Criptomoedas: <span className="text-blue-500">{cryptos}</span>
       </p>
       <p>
-        Exchanges: <span className="text-blue-400">{exchanges}</span>
+        Exchanges: <span className="text-blue-500">{exchanges}</span>
       </p>
       <p>
-        Volume Total: <span className="text-blue-400">R$:{totalVolume}</span>
+        Volume Total: <span className="text-blue-500">R$:{totalVolume}</span>
       </p>
       <p>
-        Volume em 24h: <span className="text-blue-400">{dayVolume}</span>
+        Volume em 24h: <span className="text-blue-500">{dayVolume}</span>
       </p>
-      <div className="flex">
+      <div className="flex gap-1">
         Dominance:
-        {dominanceEntries.map(([key, value]) => (
-          <p key={key}>
-            {key.toUpperCase()}: <span className="text-blue-400">{value}</span>
-          </p>
-        ))}
+        <>
+          {Object.entries(marketDominance)
+            .splice(0, 2)
+            .map(([coin, percentage]) => (
+              <div key={coin} className="flex text-blue-500">
+                {coin.toUpperCase()}:<span className="ml-1">{percentage.toFixed(2)}</span>
+              </div>
+            ))}
+        </>
       </div>
     </div>
   );

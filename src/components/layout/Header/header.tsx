@@ -8,7 +8,7 @@ import { HeaderBar } from "./HeaderBar";
 import axios from "axios";
 
 const Header: React.FC = () => {
-  const { isError, data } = useQuery({
+  const { isLoading, isError, data } = useQuery({
     queryKey: ["global"],
     queryFn: async () => {
       return axios
@@ -21,6 +21,9 @@ const Header: React.FC = () => {
         });
     },
   });
+  if (isLoading) {
+    return <div>loading</div>;
+  }
   return (
     <header className="px-2 py-2">
       <div className="flex items-center justify-between border-b">
