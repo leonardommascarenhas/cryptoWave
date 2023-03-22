@@ -2,13 +2,15 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
 import "./index.css";
-import QueryClientProviderWrapper from "./Provider/queryClientProvider";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+
+const queryClient = new QueryClient();
 
 ReactDOM.render(
   <React.StrictMode>
-    <QueryClientProviderWrapper>
+    <QueryClientProvider client={queryClient}>
       <App />
-    </QueryClientProviderWrapper>
+    </QueryClientProvider>
   </React.StrictMode>,
   document.getElementById("root")
 );

@@ -1,13 +1,28 @@
 import React from "react";
+import { useQuery } from "@tanstack/react-query";
 import { GiBigWave } from "react-icons/gi";
 import { AiOutlineLogin } from "react-icons/ai";
 import { HiMagnifyingGlass } from "react-icons/hi2";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { HeaderBar } from "./HeaderBar";
+import axios from "axios";
 
 const Header: React.FC = () => {
+  const { isError, data } = useQuery({
+    queryKey: ["global"],
+    queryFn: async () => {
+      return axios
+        .get("https://api.coingecko.com/api/v3/global")
+        .then((res) => {
+          return res.data;
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
+  });
   return (
-    <header className="px-2 py-2 ">
+    <header className="px-2 py-2">
       <div className="flex items-center justify-between border-b">
         <div>
           <a className="flex items-center font-roboto font-semibold text-lg cursor-pointer ">
@@ -21,7 +36,13 @@ const Header: React.FC = () => {
           <RxHamburgerMenu className="header-icon" />
         </div>
       </div>
-      <HeaderBar />
+      <HeaderBar
+        cryptos={data?.data?.active_cryptocurrencies}
+        exchanges={data?.data?.markets}
+        totalVolume={data?.data?.total_market_cap?.brl}
+        dayVolume={data?.data?.total_volume?.brl}
+        marketDominance={data?.data?.market_cap_percentage}
+      />
     </header>
   );
 };
