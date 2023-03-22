@@ -31,7 +31,7 @@ export const HeaderBar = ({ cryptos, exchanges, totalVolume, dayVolume, marketDo
             .splice(0, 2)
             .map(([coin, percentage]) => (
               <div key={coin} className="flex text-blue-500">
-                {coin.toUpperCase()}:<span className="ml-1">{percentage.toFixed(2)}</span>
+                {coin.toUpperCase()}:<span className="ml-1">{percentage.toFixed(2)}</span>%
               </div>
             ))}
         </>

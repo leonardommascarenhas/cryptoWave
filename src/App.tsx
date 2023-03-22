@@ -3,7 +3,7 @@ import Header from "./components/layout/Header/header";
 
 function App() {
   return (
-    <div className="App">
+    <div className="relative">
       <Header />
     </div>
   );
