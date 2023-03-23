@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { AiOutlineDown, AiOutlineClose } from "react-icons/ai";
+import Logo from "../assets/Logo";
 
 interface Props {
   toggleMenu: boolean;
@@ -19,8 +20,11 @@ const Menu = ({ toggleMenu, setIsActive }: Props) => {
 
   return (
     <nav
-      className={`-translate-x-full fixed top-0 left-0 w-full h-full z-20 bg-blue-500 ${animateClass} fill-mode-forwards`}
+      className={`-translate-x-full fixed top-0 left-0 w-full h-full z-20 ${animateClass} fill-mode-forwards`}
     >
+      <div className="bg-white p-1 border-b">
+        <Logo />
+      </div>
       <ul>
         <li>TESTEEEEEE</li>
         <li>TESTEEEEEE</li>

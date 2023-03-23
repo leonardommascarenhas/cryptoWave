@@ -21,8 +21,8 @@ module.exports = {
         },
       },
       animation:{
-        leftRight: 'leftToRight 0.9s ease-in-out',
-        rightLeft: 'rightToLeft 0.9s ease-in-out'
+        leftRight: 'leftToRight 0.4s ease-in-out',
+        rightLeft: 'rightToLeft 0.4s ease-in-out'
       }
     },
   },

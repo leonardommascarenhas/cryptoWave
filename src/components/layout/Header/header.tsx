@@ -1,12 +1,11 @@
 import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
-import { GiBigWave } from "react-icons/gi";
 import { AiOutlineLogin } from "react-icons/ai";
 import { HiMagnifyingGlass } from "react-icons/hi2";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { HeaderBar } from "./HeaderBar";
 import Menu from "./Menu";
-
+import Logo from "../assets/Logo";
 import axios from "axios";
 
 const Header: React.FC = () => {
@@ -29,16 +28,11 @@ const Header: React.FC = () => {
   }
   return (
     <>
-      <header className="px-2 py-2 z-0">
+      <header className="p-2 z-0">
         <div className="flex items-center justify-between border-b">
-          <div>
-            <a className="flex items-center font-roboto font-semibold text-lg cursor-pointer ">
-              <GiBigWave className="text-blue-500 h-14 w-14 px-1.5 py-2 mb-1 rounded-full" />
-              CryptoWave
-            </a>
-          </div>
+          <Logo />
           <div className="flex items-center gap-4">
-            <HiMagnifyingGlass className="header-icon pointer-events-auto" />
+            <HiMagnifyingGlass className="header-icon" />
             <AiOutlineLogin className="header-icon" />
             <button
               onClick={() => {
