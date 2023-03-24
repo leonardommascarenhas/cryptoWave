@@ -1,0 +1,23 @@
+ <li className="group py-3 px-5 border-b">
+          <div className="flex justify-between items-center">
+            Criptomoedas
+            <AiOutlineDown />
+          </div>
+          <ul className="hidden group-hover:block">
+            <li>
+              <a href="" className="w-full">
+                teste
+              </a>
+            </li>
+            <li>
+              <a href="" className="w-full">
+                teste
+              </a>
+            </li>
+            <li>
+              <a href="" className="w-full">
+                teste
+              </a>
+            </li>
+          </ul>
+        </li>

@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import { AiOutlineDown, AiOutlineClose } from "react-icons/ai";
+import { FaUser, FaHome, FaEnvelope } from "react-icons/fa";
 import Logo from "../assets/Logo";
+import NestedList from "./NestedList";
 
 interface Props {
   toggleMenu: boolean;
@@ -8,6 +10,11 @@ interface Props {
 }
 const Menu = ({ toggleMenu, setIsActive }: Props) => {
   const [animateClass, setAnimate] = useState<string>("animation-none");
+  const nestedItems = [
+    { icon: <FaUser />, title: "User Profile" },
+    { icon: <FaHome />, title: "Home Page" },
+    { icon: <FaEnvelope />, title: "Contact Us" },
+  ];
 
   useEffect(() => {
     if (toggleMenu) {
@@ -20,21 +27,17 @@ const Menu = ({ toggleMenu, setIsActive }: Props) => {
 
   return (
     <nav
-      className={`-translate-x-full fixed top-0 left-0 w-full h-full z-20 ${animateClass} fill-mode-forwards`}
+      className={`w-full h-full fixed top-0 left-0 z-20  bg-gray-100 text-lg font-roboto font-medium ${animateClass} fill-mode-forwards`}
     >
-      <div className="bg-white p-1 border-b">
+      <div className="flex justify-between p-1 bg-white border-b">
         <Logo />
+        <button onClick={() => setIsActive(!toggleMenu)}>
+          <AiOutlineClose />
+        </button>
       </div>
       <ul>
-        <li>TESTEEEEEE</li>
-        <li>TESTEEEEEE</li>
-        <li>TESTEEEEEE</li>
-        <li>TESTEEEEEE</li>
-        <li>TESTEEEEEE</li>
+        <NestedList title={"Criptomoedas"} nestedItems={nestedItems} />
       </ul>
-      <button onClick={() => setIsActive(!toggleMenu)}>
-        <AiOutlineClose />
-      </button>
     </nav>
   );
 };
