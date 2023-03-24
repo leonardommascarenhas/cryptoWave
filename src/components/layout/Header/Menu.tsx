@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
-import { AiOutlineDown, AiOutlineClose } from "react-icons/ai";
-import { FaUser, FaHome, FaEnvelope } from "react-icons/fa";
+import { AiOutlineClose } from "react-icons/ai";
+import { GiPodium } from "react-icons/gi";
+import { TbTextPlus } from "react-icons/tb";
+import { BsListUl, BsGraphUpArrow, BsGraphDownArrow } from "react-icons/bs";
 import Logo from "../assets/Logo";
 import NestedList from "./NestedList";
 
@@ -10,10 +12,11 @@ interface Props {
 }
 const Menu = ({ toggleMenu, setIsActive }: Props) => {
   const [animateClass, setAnimate] = useState<string>("animation-none");
-  const nestedItems = [
-    { icon: <FaUser />, title: "User Profile" },
-    { icon: <FaHome />, title: "Home Page" },
-    { icon: <FaEnvelope />, title: "Contact Us" },
+  const criptoMoedasList = [
+    { icon: GiPodium, title: "Ranking", iconStyle: "bg-blue-500 pb-1" },
+    { icon: TbTextPlus, title: "Adicionado Recentemente", iconStyle: "bg-blue-500", iconSize: 18 },
+    { icon: BsGraphUpArrow, title: "Maiores Vencedores", iconStyle: "bg-green-500", iconSize: 15 },
+    { icon: BsGraphDownArrow, title: "Maiores Perdas", iconStyle: "bg-red-500", iconSize: 15 },
   ];
 
   useEffect(() => {
@@ -36,7 +39,7 @@ const Menu = ({ toggleMenu, setIsActive }: Props) => {
         </button>
       </div>
       <ul>
-        <NestedList title={"Criptomoedas"} nestedItems={nestedItems} />
+        <NestedList title={"Criptomoedas"} nestedItems={criptoMoedasList} />
       </ul>
     </nav>
   );
