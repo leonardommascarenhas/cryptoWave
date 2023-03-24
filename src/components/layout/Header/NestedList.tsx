@@ -25,7 +25,7 @@ const NestedList = ({ title, nestedItems, linkOfNestedItem }: Props) => {
       </div>
       <ul className="mt-4">
         {nestedItems.map(({ title, icon: Icon, iconStyle, iconSize }) => (
-          <li className="flex items-center my-3" key={title}>
+          <li className="flex items-center gap-4 my-3" key={title}>
             <div className={`menu-icon ${iconStyle}`}>
               <Icon size={iconSize} />
             </div>
