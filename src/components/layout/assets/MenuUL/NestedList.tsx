@@ -40,8 +40,8 @@ const NestedList = ({ title, nestedItems }: Props) => {
         </div>
       </div>
       <ul
-        className={`lg:block transition-all duration-75 ease-in-out ${
-          isActive ? "h-auto" : "h-0 overflow-hidden lg:h-auto"
+        className={`transition-all duration-75 ease-in-out ${
+          isActive ? "h-auto" : "h-0 overflow-hidden lg:max-h-96"
         }`}
       >
         {nestedItems.map(({ title, icon: Icon, iconStyle, iconSize }) => (

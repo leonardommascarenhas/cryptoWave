@@ -4,9 +4,10 @@ import { AiOutlineLogin } from "react-icons/ai";
 import { HiMagnifyingGlass } from "react-icons/hi2";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { HeaderBar } from "./HeaderBar";
-import Menu from "./Menu";
+import MobileMenu from "./MobileMenu";
 import Logo from "../assets/Logo";
 import axios from "axios";
+import MenuUL from "../assets/MenuUL/MenuUL";
 
 const Header: React.FC = () => {
   const [isActive, setIsActive] = useState(false);
@@ -31,6 +32,7 @@ const Header: React.FC = () => {
       <header className="p-2 z-0">
         <div className="flex items-center justify-between border-b">
           <Logo />
+          <MenuUL />
           <div className="flex items-center gap-4">
             <HiMagnifyingGlass className="header-icon" />
             <AiOutlineLogin className="header-icon" />
@@ -52,7 +54,7 @@ const Header: React.FC = () => {
           marketDominance={data?.data?.market_cap_percentage}
         />
       </header>
-      <Menu toggleMenu={isActive} setIsActive={setIsActive} />
+      <MobileMenu toggleMenu={isActive} setIsActive={setIsActive} />
     </>
   );
 };
