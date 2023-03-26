@@ -7,15 +7,15 @@ interface NestedItem {
   title: string;
   iconStyle?: string;
   iconSize?: number;
+  linkOfNestedItem?: string;
 }
 
 interface Props {
   title: string;
   nestedItems: NestedItem[];
-  linkOfNestedItem?: string;
 }
 
-const NestedList = ({ title, nestedItems, linkOfNestedItem }: Props) => {
+const NestedList = ({ title, nestedItems }: Props) => {
   const [isActive, setIsActive] = useState<boolean>(false);
 
   const toggleActive = () => {
