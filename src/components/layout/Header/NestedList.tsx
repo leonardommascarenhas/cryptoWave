@@ -25,19 +25,23 @@ const NestedList = ({ title, nestedItems }: Props) => {
   return (
     <li className="border-b lg:border-none px-6 py-3">
       <div
-        className={`flex justify-between items-center cursor-pointer ${isActive ? "text-blue-500" : ""}`}
+        className={`flex justify-between items-center cursor-pointer lg:hover:text-blue-500 ${
+          isActive ? "text-blue-500" : ""
+        }`}
         onClick={toggleActive}
       >
         {title}
-        <AiOutlineDown
-          className={`-mt-0.5 transition-transform duration-150 ease-in-out ${
-            isActive ? "transform rotate-180" : ""
-          }`}
-        />
+        <div className="lg:hidden">
+          <AiOutlineDown
+            className={` -mt-0.5 transition-transform duration-150 ease-in-out ${
+              isActive ? "transform rotate-180" : ""
+            }`}
+          />
+        </div>
       </div>
       <ul
-        className={`overflow-hidden transition-all duration-75 ease-in-out ${
-          isActive ? "max-h-96" : "max-h-0"
+        className={`lg:block transition-all duration-75 ease-in-out ${
+          isActive ? "h-auto" : "h-0 overflow-hidden lg:h-auto"
         }`}
       >
         {nestedItems.map(({ title, icon: Icon, iconStyle, iconSize }) => (

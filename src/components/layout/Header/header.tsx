@@ -38,6 +38,7 @@ const Header: React.FC = () => {
               onClick={() => {
                 setIsActive(!isActive);
               }}
+              className="lg:hidden"
             >
               <RxHamburgerMenu className="header-icon" />
             </button>

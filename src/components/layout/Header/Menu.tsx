@@ -19,6 +19,8 @@ const Menu = ({ toggleMenu, setIsActive }: Props) => {
     { icon: BsGraphDownArrow, title: "Maiores Perdas", iconStyle: "bg-red-500", iconSize: 15 },
   ];
 
+  const exchanges = [];
+
   useEffect(() => {
     if (toggleMenu) {
       setAnimate("animate-leftRight");
@@ -39,6 +41,10 @@ const Menu = ({ toggleMenu, setIsActive }: Props) => {
         </button>
       </div>
       <ul>
+        <NestedList title={"Criptomoedas"} nestedItems={criptoMoedasList} />
+        <NestedList title={"Criptomoedas"} nestedItems={criptoMoedasList} />
+        <NestedList title={"Criptomoedas"} nestedItems={criptoMoedasList} />
+        <NestedList title={"Criptomoedas"} nestedItems={criptoMoedasList} />
         <NestedList title={"Criptomoedas"} nestedItems={criptoMoedasList} />
       </ul>
     </nav>
