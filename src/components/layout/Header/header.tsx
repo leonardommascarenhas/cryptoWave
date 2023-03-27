@@ -31,8 +31,10 @@ const Header: React.FC = () => {
     <>
       <header className="p-2 z-0">
         <div className="flex items-center justify-between border-b">
-          <Logo />
-          <MenuUL />
+          <div className="flex items-center">
+            <Logo />
+            <MenuUL />
+          </div>
           <div className="flex items-center gap-4">
             <HiMagnifyingGlass className="header-icon" />
             <AiOutlineLogin className="header-icon" />

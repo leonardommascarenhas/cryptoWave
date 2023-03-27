@@ -23,7 +23,7 @@ const NestedList = ({ title, nestedItems }: Props) => {
   };
 
   return (
-    <li className="border-b lg:border-none px-6 py-3">
+    <li className="relative flex flex-col border-b lg:border-none px-6 py-3">
       <div
         className={`flex justify-between items-center cursor-pointer lg:hover:text-blue-500 ${
           isActive ? "text-blue-500" : ""
@@ -40,7 +40,7 @@ const NestedList = ({ title, nestedItems }: Props) => {
         </div>
       </div>
       <ul
-        className={`transition-all duration-75 ease-in-out ${
+        className={`absolute top-8 z-50 transition-all duration-75 ease-in-out bg-white ${
           isActive ? "h-auto" : "h-0 overflow-hidden lg:max-h-96"
         }`}
       >
