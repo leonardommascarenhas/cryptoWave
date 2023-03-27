@@ -3,8 +3,9 @@ import Header from "./components/layout/Header/header";
 
 function App() {
   return (
-    <div className="relative">
+    <div className="relative flex flex-col h-screen">
       <Header />
+      <div className="bg-gray-200 flex-1"></div>
     </div>
   );
 }

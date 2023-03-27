@@ -19,13 +19,13 @@ const NestedList = ({ title, nestedItems }: Props) => {
   const [isActive, setIsActive] = useState<boolean>(false);
 
   const toggleActive = () => {
-    setIsActive(!isActive);
+    if (window.innerWidth < 1023) setIsActive(!isActive);
   };
 
   return (
-    <li className="relative flex flex-col border-b lg:border-none px-6 py-3">
+    <li className="group relative flex flex-col items-center border-b lg:border-none px-6 py-3">
       <div
-        className={`flex justify-between items-center cursor-pointer lg:hover:text-blue-500 ${
+        className={`lg:group flex justify-between items-center cursor-pointer lg:hover:text-blue-500 ${
           isActive ? "text-blue-500" : ""
         }`}
         onClick={toggleActive}
@@ -40,12 +40,12 @@ const NestedList = ({ title, nestedItems }: Props) => {
         </div>
       </div>
       <ul
-        className={`absolute top-8 z-50 transition-all duration-75 ease-in-out bg-white ${
-          isActive ? "h-auto" : "h-0 overflow-hidden lg:max-h-96"
+        className={`overflow-hidden lg:absolute lg:top-8 lg:bg-white lg:z-50 lg:group-hover:h-auto lg:shadow-2xl transition-all duration-75 ease-in-out  ${
+          isActive ? "h-auto" : "h-0"
         }`}
       >
         {nestedItems.map(({ title, icon: Icon, iconStyle, iconSize }) => (
-          <li className="flex items-center gap-4 my-6" key={title}>
+          <li className="flex items-center gap-4 my-6 px-6" key={title}>
             <div className={`menu-icon ${iconStyle}`}>
               <Icon size={iconSize} />
             </div>

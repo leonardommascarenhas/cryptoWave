@@ -23,7 +23,7 @@ const Menu = ({ toggleMenu, setIsActive }: Props) => {
 
   return (
     <div
-      className={`-translate-x-full w-full h-full fixed top-0 left-0 z-20 bg-gray-100 text-lg font-roboto font-medium ${animateClass} fill-mode-forwards`}
+      className={`lg:hidden -translate-x-full w-full h-full fixed top-0 left-0 z-20 bg-gray-100 text-lg font-roboto font-medium ${animateClass} fill-mode-forwards`}
     >
       <div className="flex justify-between py-1 pl-1 pr-6 bg-white border-b">
         <Logo />

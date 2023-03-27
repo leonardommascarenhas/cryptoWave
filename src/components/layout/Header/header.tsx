@@ -15,7 +15,7 @@ const Header: React.FC = () => {
     queryKey: ["global"],
     queryFn: async () => {
       return axios
-        .get("https://api.coingecko.com/api/v3/global")
+        .get("https://api.coingecko.com/api/v3/global/")
         .then((res) => {
           return res.data;
         })
@@ -29,11 +29,13 @@ const Header: React.FC = () => {
   }
   return (
     <>
-      <header className="p-2 z-0">
+      <header className="grid px-2 shadow-sm z-0">
         <div className="flex items-center justify-between border-b">
           <div className="flex items-center">
             <Logo />
-            <MenuUL />
+            <div className="hidden lg:block">
+              <MenuUL />
+            </div>
           </div>
           <div className="flex items-center gap-4">
             <HiMagnifyingGlass className="header-icon" />

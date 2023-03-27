@@ -12,7 +12,7 @@ const MenuUL = () => {
     { icon: BsGraphDownArrow, title: "Maiores Perdas", iconStyle: "bg-red-500", iconSize: 15 },
   ];
   return (
-    <ul className="hidden lg:flex gap-5">
+    <ul className="lg:flex">
       <NestedList title="Criptomoedas" nestedItems={criptoMoedasList} />
       <NestedList title="Criptomoedas" nestedItems={criptoMoedasList} />
       <NestedList title="Criptomoedas" nestedItems={criptoMoedasList} />
