@@ -7,6 +7,15 @@ module.exports = {
   ],
   theme: {
     extend: {
+      gridTemplateAreas: {
+        'headerDesktop' : [
+          'headerBar',
+          'headerNav'
+        ]
+      },
+      gridTemplateRows: {
+        'headerDesktop': '6fr 1fr'
+      },
       fontFamily:{
         roboto: ['Roboto', 'sans-serif']
       },
@@ -28,5 +37,6 @@ module.exports = {
   },
   plugins: [
    require("tailwindcss-animate"),
+   require('@savvywombat/tailwindcss-grid-areas')
   ],
 }
