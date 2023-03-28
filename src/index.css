@@ -8,7 +8,10 @@
         @apply h-6 w-6
 }
     .menu-icon{
-        @apply relative flex items-center justify-center h-7 w-7 rounded-full text-white
+        @apply relative flex items-center justify-center h-8 w-8 px-2 rounded-full text-white
     }
+    .arrow-up{
+            @apply hidden group-hover:block absolute -bottom-1 w-0 h-0 border-l-8 border-l-transparent border-b-8 border-b-gray-50 border-r-8 border-r-transparent shadow-lg;
+    }
+    
 }
-
