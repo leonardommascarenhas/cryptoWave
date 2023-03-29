@@ -11,7 +11,7 @@ interface Props {
 
 export const HeaderBar = ({ cryptos, exchanges, totalVolume, dayVolume, marketDominance }: Props) => {
   return (
-    <div className="flex lg:grid-in-headerBar items-center h-8 border-b overflow-x-auto w-full whitespace-nowrap text-xs gap-2">
+    <div className="flex py-4 lg:grid-in-headerBar items-center dark:border-b dark:border-b-gray-800 overflow-x-auto w-full whitespace-nowrap text-xs text-zinc-400 font-bold gap-2">
       <p>
         Criptomoedas: <span className="text-blue-500">{cryptos}</span>
       </p>

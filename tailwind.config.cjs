@@ -7,6 +7,16 @@ module.exports = {
   ],
   theme: {
     extend: {
+       boxShadow: {
+        'dropdown':  '0 5px 30px rgba(0, 0, 0, 0.2), 0 0 15px rgba(0, 0, 0, 0.1), 0 0 10px rgba(255, 255, 255, 0.5)'
+      },
+      colors: {
+        dark:{
+          '600': '#323546',
+          '700': '#1c1c1c',
+          '800': '#17171a'
+        },
+      },
       gridTemplateAreas: {
         'headerDesktop' : [
           'headerBar',

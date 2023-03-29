@@ -41,7 +41,7 @@ const NestedList = ({ title, nestedItems }: Props) => {
       </div>
       <div className="arrow-up"></div>
       <ul
-        className={`relative overflow-hidden lg:flex lg:flex-col lg:items-center lg:absolute lg:top-12 lg:bg-white lg:z-30 group-hover:lg:h-auto lg:shadow-2xl transition-all duration-75 ease-in-out before: ${
+        className={`relative overflow-hidden lg:flex lg:flex-col lg:items-center lg:absolute lg:top-14 lg:bg-white lg:z-30 group-hover:lg:h-auto lg:shadow-lg transition-all duration-75 ease-in-out dark:lg:bg-dark-800 dark:lg:shadow-dropdown ${
           isActive ? "h-auto" : "h-0"
         }`}
       >

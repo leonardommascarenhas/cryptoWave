@@ -29,8 +29,8 @@ const Header: React.FC = () => {
   }
   return (
     <>
-      <header className="lg:grid lg:grid-areas-headerDesktop px-2 shadow-sm z-0">
-        <div className="flex lg:grid-in-headerNav items-center justify-between border-b">
+      <header className="lg:grid lg:grid-areas-headerDesktop px-7 shadow-sm z-0 dark:bg-dark-800">
+        <div className="flex lg:grid-in-headerNav items-center justify-between py-2">
           <div className="flex items-center">
             <Logo />
             <div className="hidden lg:block">

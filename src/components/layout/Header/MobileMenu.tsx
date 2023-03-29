@@ -23,9 +23,9 @@ const Menu = ({ toggleMenu, setIsActive }: Props) => {
 
   return (
     <div
-      className={`-translate-x-full w-full h-full fixed top-0 left-0 z-50 bg-gray-100 text-lg font-roboto font-medium ${animateClass} lg:animate-rightLeft fill-mode-forwards `}
+      className={`-translate-x-full w-full h-full fixed top-0 left-0 z-50 bg-gray-100 text-lg font-roboto font-medium ${animateClass} lg:animate-rightLeft lg:hidden fill-mode-forwards dark:bg-dark-800`}
     >
-      <div className="flex justify-between py-1 pl-1 pr-6 bg-white border-b">
+      <div className="flex justify-between py-1 pl-1 pr-6 border-b">
         <Logo />
         <button onClick={() => setIsActive(!toggleMenu)}>
           <AiOutlineClose />
