@@ -14,7 +14,7 @@ function App() {
   const [theme, setTheme] = useState("light");
   return (
     <ThemeContext.Provider value={{ theme, setTheme }}>
-      <div className={`flex flex-col h-screen font-roboto dark:text-white ${theme}`}>
+      <div className={`flex flex-col h-screen font-roboto  ${theme}`}>
         <Header />
         <div className="dark:bg-gradient-to-b from-dark-600 to-dark-800 flex-1">
           <ThemeToggle />

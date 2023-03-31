@@ -8,6 +8,7 @@ import MobileMenu from "./MobileMenu";
 import Logo from "../assets/Logo";
 import axios from "axios";
 import MenuUL from "../assets/MenuUL/MenuUL";
+import ThemeToggle from "../assets/ThemeToggle";
 
 const Header: React.FC = () => {
   const [isActive, setIsActive] = useState(false);
@@ -29,15 +30,15 @@ const Header: React.FC = () => {
   }
   return (
     <>
-      <header className="lg:grid lg:grid-areas-headerDesktop px-7 shadow-sm z-0 dark:bg-dark-800">
-        <div className="flex lg:grid-in-headerNav items-center justify-between py-2">
+      <header className="lg:grid lg:grid-areas-headerDesktop shadow-sm z-0 dark:bg-dark-800">
+        <div className="flex lg:grid-in-headerNav items-center justify-between py-2  px-5 border-b border-b-gray-200 dark:border-b-gray-700">
           <div className="flex items-center">
             <Logo />
             <div className="hidden lg:block">
               <MenuUL />
             </div>
           </div>
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-4 dark:text-white">
             <HiMagnifyingGlass className="header-icon" />
             <AiOutlineLogin className="header-icon" />
             <button
