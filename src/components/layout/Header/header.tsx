@@ -8,7 +8,7 @@ import MobileMenu from "./MobileMenu";
 import Logo from "../assets/Logo";
 import axios from "axios";
 import MenuUL from "../assets/MenuUL/MenuUL";
-import ThemeToggle from "../assets/ThemeToggle";
+import ThemeToggle from "../../Buttons&Selects/ThemeToggle";
 import { AppContext } from "../../../App";
 import CurrencySelect from "../../Buttons&Selects/CurrencySelect";
 

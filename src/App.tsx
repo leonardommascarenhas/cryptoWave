@@ -1,5 +1,5 @@
 import { createContext, useState } from "react";
-import ThemeToggle from "./components/layout/assets/ThemeToggle";
+import ThemeToggle from "./components/Buttons&Selects/ThemeToggle";
 import Header from "./components/layout/Header/header";
 
 interface AppContextType {
@@ -29,7 +29,7 @@ function App() {
     <AppContext.Provider
       value={{ theme, setTheme, currency, setCurrency, currencySymbol, setCurrencySymbol }}
     >
-      <div className={`flex flex-col h-screen font-roboto ${theme}`}>
+      <div className={`flex flex-col min-h-screen font-roboto ${theme}`}>
         <Header />
         <div className="dark:bg-gradient-to-b from-dark-600 to-dark-800 flex-1">
           <ThemeToggle />

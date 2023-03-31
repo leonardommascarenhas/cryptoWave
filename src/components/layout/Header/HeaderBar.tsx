@@ -24,7 +24,7 @@ export const HeaderBar = ({ cryptos, exchanges, totalVolume, dayVolume, marketDo
         <span className="text-blue-500">{`${currencySymbol}: ${totalVolume.toLocaleString()}`}</span>
       </p>
       <p>
-        24h: <span className="text-blue-500">R$: {`${currencySymbol}: ${dayVolume.toLocaleString()}`}</span>
+        24h: <span className="text-blue-500">{`${currencySymbol}: ${dayVolume.toLocaleString()}`}</span>
       </p>
       <div className="flex gap-1">
         Dominance:
