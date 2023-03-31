@@ -1,5 +1,5 @@
-import React from "react";
-import { useEffect } from "react";
+import { useContext } from "react";
+import { AppContext } from "../../../App";
 
 interface Props {
   cryptos: number;
@@ -10,6 +10,7 @@ interface Props {
 }
 
 export const HeaderBar = ({ cryptos, exchanges, totalVolume, dayVolume, marketDominance }: Props) => {
+  const { currencySymbol } = useContext(AppContext);
   return (
     <div className="flex py-4 pl-8 lg:grid-in-headerBar items-center border-b dark:border-b-gray-800 overflow-x-auto w-full whitespace-nowrap text-xs text-zinc-400 font-bold gap-2">
       <p>
@@ -19,10 +20,11 @@ export const HeaderBar = ({ cryptos, exchanges, totalVolume, dayVolume, marketDo
         Exchanges: <span className="text-blue-500">{exchanges}</span>
       </p>
       <p>
-        Volume Total: <span className="text-blue-500">R$: {totalVolume.toLocaleString()}</span>
+        Volume Total:{" "}
+        <span className="text-blue-500">{`${currencySymbol}: ${totalVolume.toLocaleString()}`}</span>
       </p>
       <p>
-        24h: <span className="text-blue-500">R$: {dayVolume.toLocaleString()}</span>
+        24h: <span className="text-blue-500">R$: {`${currencySymbol}: ${dayVolume.toLocaleString()}`}</span>
       </p>
       <div className="flex gap-1">
         Dominance:

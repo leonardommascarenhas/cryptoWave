@@ -1,10 +1,10 @@
-import { ThemeContext } from "../../../App";
+import { AppContext } from "../../../App";
 import { useState, useContext } from "react";
 import { HiSun } from "react-icons/hi";
 import { IoMoonSharp } from "react-icons/io5";
 
 const ThemeToggle = () => {
-  const { theme, setTheme } = useContext(ThemeContext);
+  const { theme, setTheme } = useContext(AppContext);
   const toggleDarkMode = () => {
     setTheme(theme === "light" ? "dark" : "light");
   };

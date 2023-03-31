@@ -9,11 +9,11 @@ import Logo from "../assets/Logo";
 import axios from "axios";
 import MenuUL from "../assets/MenuUL/MenuUL";
 import ThemeToggle from "../assets/ThemeToggle";
-import { ThemeContext } from "../../../App";
+import { AppContext } from "../../../App";
 import CurrencySelect from "../../Buttons&Selects/CurrencySelect";
 
 const Header: React.FC = () => {
-  const { currency, setCurrency } = useContext(ThemeContext);
+  const { currency, setCurrency } = useContext(AppContext);
   const [isActive, setIsActive] = useState(false);
   const { isLoading, isError, data } = useQuery({
     queryKey: ["global"],

@@ -11,7 +11,7 @@
         @apply relative flex items-center justify-center h-8 w-8 px-2 rounded-full text-white
     }
     .arrow-up{
-            @apply hidden group-hover:block absolute -bottom-2 w-0 h-0 border-l-8 border-l-transparent border-b-8 border-b-gray-50 border-r-8 border-r-transparent dark:border-b-dark-700;
+         @apply hidden group-hover:block absolute -bottom-2 w-0 h-0 border-l-8 border-l-transparent border-b-8 border-b-gray-50 border-r-8 border-r-transparent dark:border-b-dark-700;
     }
     
 }
