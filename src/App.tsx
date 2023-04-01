@@ -31,9 +31,7 @@ function App() {
     >
       <div className={`flex flex-col min-h-screen font-roboto ${theme}`}>
         <Header />
-        <div className="dark:bg-gradient-to-b from-dark-600 to-dark-800 flex-1">
-          <ThemeToggle />
-        </div>
+        <div className="dark:bg-gradient-to-b from-dark-600 to-dark-800 flex-1"></div>
       </div>
     </AppContext.Provider>
   );

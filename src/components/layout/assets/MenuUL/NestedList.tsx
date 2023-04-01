@@ -23,7 +23,7 @@ const NestedList = ({ title, nestedItems }: Props) => {
   };
 
   return (
-    <li className="relative group flex flex-col lg:items-center  border-b lg:border-none px-6 py-3 dark:text-white">
+    <li className="relative group flex flex-col lg:items-center border-b lg:border-none px-6 py-3 dark:text-white">
       <div
         className={`lg:group flex justify-between items-center cursor-pointer lg:hover:text-blue-500 ${
           isActive ? "text-blue-500" : ""
@@ -33,7 +33,7 @@ const NestedList = ({ title, nestedItems }: Props) => {
         {title}
         <div className="lg:hidden">
           <AiOutlineDown
-            className={` -mt-0.5 transition-transform duration-150 ease-in-out ${
+            className={`-mt-0.5 transition-transform duration-150 ease-in-out ${
               isActive ? "transform rotate-180" : ""
             }`}
           />
@@ -46,7 +46,7 @@ const NestedList = ({ title, nestedItems }: Props) => {
         }`}
       >
         {nestedItems.map(({ title, icon: Icon, iconStyle, iconSize }) => (
-          <li className="flex items-center w-full gap-4 my-4 px-6" key={title}>
+          <li className="flex items-center w-full gap-4 my-4 lg:px-6" key={title}>
             <div className={`menu-icon ${iconStyle}`}>
               <Icon size={iconSize} />
             </div>

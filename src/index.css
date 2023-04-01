@@ -13,5 +13,13 @@
     .arrow-up{
          @apply hidden group-hover:block absolute -bottom-2 w-0 h-0 border-l-8 border-l-transparent border-b-8 border-b-gray-50 border-r-8 border-r-transparent dark:border-b-dark-700;
     }
-    
+    .sun-icon{
+        @apply w-full h-full text-gray-100 bg-dark-600 rounded-lg p-1.5
+    }
+    .moon-icon{
+        @apply w-full h-full text-black bg-slate-50 rounded-lg p-1.5
+    }
+    .social-icon{
+        @apply w-6 h-6 text-slate-600 dark:text-slate-400
+    }
 }
