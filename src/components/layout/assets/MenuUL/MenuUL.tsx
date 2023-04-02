@@ -12,7 +12,7 @@ const MenuUL = () => {
     { icon: BsGraphDownArrow, title: "Maiores Perdas", iconStyle: "bg-red-500", iconSize: 15 },
   ];
   return (
-    <ul className="lg:flex font-bold font-roboto text-lg lg:text-sm">
+    <ul className="lg:flex w-full font-bold font-roboto text-lg lg:text-sm">
       <NestedList title="Criptomoedas" nestedItems={criptoMoedasList} />
       <NestedList title="Criptomoedas" nestedItems={criptoMoedasList} />
       <NestedList title="Criptomoedas" nestedItems={criptoMoedasList} />

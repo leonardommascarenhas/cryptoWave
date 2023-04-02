@@ -34,7 +34,7 @@ const Menu = ({ toggleMenu, setIsActive }: Props) => {
         </button>
       </div>
       <MenuUL />
-      <div className="flex">
+      <div className="my-4 px-4 flex items-center w-full gap-3">
         <CurrencySelect />
         <ThemeToggle />
       </div>
