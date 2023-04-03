@@ -34,10 +34,10 @@ const Header: React.FC = () => {
   return (
     <>
       <header className="lg:grid lg:grid-areas-headerDesktop shadow-sm z-0 dark:bg-dark-800">
-        <div className="flex lg:grid-in-headerNav items-center justify-between py-2 px-5 border-b border-b-gray-200 dark:border-b-gray-700">
-          <div className="flex items-center">
+        <div className="h-16 flex lg:grid-in-headerNav items-center justify-between px-5 border-b border-b-gray-200 dark:border-b-gray-700">
+          <div className="flex items-center h-full">
             <Logo />
-            <div className="hidden lg:block">
+            <div className="hidden lg:flex lg:justify-center lg:items-center h-full">
               <MenuUL />
             </div>
           </div>

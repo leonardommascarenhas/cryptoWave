@@ -1,6 +1,5 @@
-import { useState, useContext, useEffect } from "react";
+import { useContext, useEffect } from "react";
 import { AppContext } from "../../App";
-
 const CurrencySelect = () => {
   const { currency, setCurrency, setCurrencySymbol } = useContext(AppContext);
 
@@ -28,7 +27,7 @@ const CurrencySelect = () => {
       <select
         value={currency}
         onChange={handleCurrencyChange}
-        className="p-2 w-full bg-gray-300 border-2 border-gray-400 rounded-md outline-none text-xs"
+        className="py-2 w-full bg-gray-300 border-2 border-gray-400 rounded-md outline-none text-xs border-x-[40px] border-transparent"
       >
         <option value="brl">BRL</option>
         <option value="usd">USD</option>

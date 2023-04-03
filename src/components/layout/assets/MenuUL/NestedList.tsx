@@ -23,7 +23,7 @@ const NestedList = ({ title, nestedItems }: Props) => {
   };
 
   return (
-    <li className="relative group flex flex-col lg:items-center border-b lg:border-none px-6 py-3 dark:text-white">
+    <li className="relative group flex flex-col lg:items-center lg:h-full lg:justify-center border-b lg:border-none dark:text-white">
       <div
         className={`lg:group flex justify-between items-center cursor-pointer lg:hover:text-blue-500 ${
           isActive ? "text-blue-500" : ""
