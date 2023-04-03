@@ -61,7 +61,6 @@ const Header: React.FC = () => {
           dayVolume={data?.data?.total_volume?.[currency]}
           marketDominance={data?.data?.market_cap_percentage}
         />
-        <CurrencySelect />
       </header>
       <MobileMenu toggleMenu={isActive} setIsActive={setIsActive} />
     </>

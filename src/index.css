@@ -11,7 +11,7 @@
         @apply relative flex items-center justify-center h-8 w-8 px-2 rounded-full text-white
     }
     .arrow-up{
-         @apply hidden group-hover:block absolute -bottom-2 w-0 h-0 border-l-8 border-l-transparent border-b-8 border-b-gray-50 border-r-8 border-r-transparent dark:border-b-dark-700;
+         @apply hidden group-hover:block absolute -bottom-0 w-0 h-0 border-l-8 border-l-transparent border-b-8 border-b-gray-50 border-r-8 border-r-transparent dark:border-b-dark-700;
     }
     .sun-icon{
         @apply w-full h-full text-gray-100 bg-dark-600 rounded-lg p-1.5
@@ -22,4 +22,8 @@
     .social-icon{
         @apply w-6 h-6 text-slate-600 dark:text-slate-400
     }
+    .currencySelector{
+        @apply py-2 w-full bg-gray-300 border-2 border-gray-400 rounded-md outline-none text-xs border-x-[40px] border-transparent text-black cursor-pointer
+    }
+    
 }
