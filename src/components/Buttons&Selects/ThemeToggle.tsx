@@ -9,7 +9,7 @@ const ThemeToggle = () => {
     setTheme(theme === "light" ? "dark" : "light");
   };
   return (
-    <button onClick={toggleDarkMode} className="w-12 h-10">
+    <button onClick={toggleDarkMode} className="w-12 h-full">
       {theme === "dark" ? <HiSun className="sun-icon" /> : <IoMoonSharp className="moon-icon" />}
     </button>
   );

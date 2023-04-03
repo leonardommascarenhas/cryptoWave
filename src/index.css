@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 @layer components{
     .header-icon{
         @apply h-6 w-6
@@ -23,7 +22,7 @@
         @apply w-6 h-6 text-slate-600 dark:text-slate-400
     }
     .currencySelector{
-        @apply py-2 w-full bg-gray-300 border-2 border-gray-400 rounded-md outline-none text-xs border-x-[40px] border-transparent text-black cursor-pointer
+        @apply py-2 w-full h-full lg:max-w-fit bg-gray-300 rounded-md outline-none text-xs text-black cursor-pointer
     }
     
 }

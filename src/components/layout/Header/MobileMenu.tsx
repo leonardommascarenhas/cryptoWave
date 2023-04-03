@@ -29,12 +29,12 @@ const Menu = ({ toggleMenu, setIsActive }: Props) => {
     >
       <div className="w-full flex justify-between py-1 pl-1 pr-6 border-b">
         <Logo />
-        <button onClick={() => setIsActive(!toggleMenu)}>
+        <button onClick={() => setIsActive(!toggleMenu)} className="text-white">
           <AiOutlineClose />
         </button>
       </div>
       <MenuUL />
-      <div className="my-4 px-4 flex items-center w-full gap-3">
+      <div className="my-4 px-4 w-full h-8 flex items-center gap-3">
         <CurrencySelect />
         <ThemeToggle />
       </div>
