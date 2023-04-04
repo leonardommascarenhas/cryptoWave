@@ -1,5 +1,5 @@
 import { AppContext } from "../../App";
-import { useState, useContext } from "react";
+import { useContext } from "react";
 import { HiSun } from "react-icons/hi";
 import { IoMoonSharp } from "react-icons/io5";
 

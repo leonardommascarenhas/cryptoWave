@@ -1,19 +1,11 @@
 import { useContext, useEffect } from "react";
 import { AppContext } from "../../App";
-import Select from "react-select";
-
 const CurrencySelect = () => {
   const { currency, setCurrency, setCurrencySymbol } = useContext(AppContext);
 
-  const handleCurrencyChange = (selectedOption: any, actionMeta: any) => {
-    setCurrency(selectedOption.value);
+  const handleCurrencyChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    setCurrency(event.target.value);
   };
-
-  const options = [
-    { value: "brl", label: "BRL" },
-    { value: "usd", label: "USD" },
-    { value: "eur", label: "EUR" },
-  ];
 
   useEffect(() => {
     switch (currency) {
@@ -31,14 +23,12 @@ const CurrencySelect = () => {
   }, [currency]);
 
   return (
-    <div className="flex-grow lg:grow-0">
-      <Select
-        value={{ value: currency, label: currency.toUpperCase() }}
-        options={options}
-        onChange={handleCurrencyChange}
-        menuPlacement="bottom"
-        menuPosition="absolute"
-      />
+    <div className="flex-grow">
+      <select value={currency} onChange={handleCurrencyChange} className="currencySelector">
+        <option value="brl">BRL</option>
+        <option value="usd">USD</option>
+        <option value="eur">EUR</option>
+      </select>
     </div>
   );
 };
