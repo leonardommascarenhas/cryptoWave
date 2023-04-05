@@ -1,6 +1,7 @@
 import { createContext, useState } from "react";
 import ThemeToggle from "./components/Buttons&Selects/ThemeToggle";
 import Header from "./components/layout/Header/header";
+import CardBase from "./components/Cards/CardBase";
 
 interface AppContextType {
   theme: string;
@@ -31,7 +32,13 @@ function App() {
     >
       <div className={`flex flex-col min-h-screen font-roboto ${theme}`}>
         <Header />
-        <div className="dark:bg-gradient-to-b from-dark-600 to-dark-800 flex-1"></div>
+        <div className="px-4 dark:bg-gradient-to-b from-dark-600 to-dark-800 flex-1">
+          <div className="hidden lg:flex items-center justify-center gap-2">
+            <CardBase slideAutoPlayDelay={3000} />
+            <CardBase slideAutoPlayDelay={5000} />
+            <CardBase slideAutoPlayDelay={8000} />
+          </div>
+        </div>
       </div>
     </AppContext.Provider>
   );

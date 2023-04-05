@@ -18,7 +18,8 @@
     "react-icons": "^4.8.0",
     "react-router": "^6.9.0",
     "react-router-dom": "^6.9.0",
-    "react-select": "^5.7.2"
+    "react-select": "^5.7.2",
+    "swiper": "^9.2.0"
   },
   "devDependencies": {
     "@tanstack/react-query": "^4.28.0",
