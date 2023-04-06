@@ -33,7 +33,7 @@ const Header: React.FC = () => {
   }
   return (
     <>
-      <header className="lg:grid lg:grid-areas-headerDesktop shadow-sm z-0 dark:bg-dark-800">
+      <header className="lg:grid lg:grid-areas-headerDesktop shadow-sm z-50 dark:bg-dark-800">
         <div className="h-16 flex lg:grid-in-headerNav items-center justify-between px-5 border-b border-b-gray-200 dark:border-b-gray-700">
           <div className="flex items-center h-full">
             <Logo />
