@@ -5,14 +5,12 @@
 .swiper {
     width: 100%;
     height: 100%;
+    z-index: 0;
 }
 
-.swiper-slide {
+.my-slide-class {
     text-align: center;
     font-size: 18px;
-    background: #fff;
-
-    /* Center slide text vertically */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -41,5 +39,10 @@
     .currencySelector{
         @apply py-2 w-full h-full lg:max-w-fit bg-gray-300 rounded-md outline-none text-xs text-black cursor-pointer
     }
-    
+    .swiper{
+        @apply w-full h-full rounded-lg
+    }
+    .trendingSlides{
+        @apply flex items-center justify-center bg-white dark:bg-dark-500
+    }
 }
