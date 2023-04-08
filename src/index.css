@@ -8,14 +8,6 @@
     z-index: 0;
 }
 
-.my-slide-class {
-    text-align: center;
-    font-size: 18px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 
 @layer components{
     .header-icon{
@@ -43,6 +35,6 @@
         @apply w-full h-full rounded-lg
     }
     .trendingSlides{
-        @apply flex flex-col justify-center bg-white dark:bg-dark-500
+        @apply flex flex-col justify-center gap-4 bg-white dark:bg-dark-500 p-3
     }
 }
