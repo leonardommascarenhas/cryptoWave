@@ -14,14 +14,18 @@ interface CardMainContent {
   };
 }
 
+interface gainers {
+  image?: string; //algumas moedas não tem um simbolo na API
+  id: string;
+}
 interface Props {
   iconStyle?: string;
-  secondArray: CardMainContent[];
-  third?: any[];
+  trendingArray: CardMainContent[];
+  gainersArray: gainers[];
 }
 
-const CardBase = ({ secondArray, third }: Props) => {
-  console.log(third);
+const CardBase = ({ trendingArray, gainersArray }: Props) => {
+  console.log(gainersArray);
   return (
     <article className="h-52 w-1/3 flex items-center dark:text-white">
       <Swiper pagination={{ clickable: true }} modules={[Pagination, Autoplay]} autoplay={true}>
@@ -32,7 +36,7 @@ const CardBase = ({ secondArray, third }: Props) => {
             </span>
             <h2 className="text-xl">Trending</h2>
           </div>
-          {secondArray.map(({ item: { small, name } }, index) => (
+          {trendingArray.map(({ item: { small, name } }, index) => (
             <div className="flex items-center gap-3">
               <span className="text-gray-400 font-semibold">{index + 1}</span>
               <div className="flex items-center gap-2">
@@ -48,7 +52,7 @@ const CardBase = ({ secondArray, third }: Props) => {
               <AiTwotoneFire size={28} />
             </span>
             <h2 className="text-xl"></h2>
-            {third.map(({ image, id }, index) => (
+            {gainersArray.map(({ image, id }, index) => (
               <div className="flex items-center gap-3">
                 <span className="text-gray-400 font-semibold">{index + 1}</span>
                 <div className="flex items-center gap-2">
@@ -84,7 +88,7 @@ const CardsDisplay = () => {
             "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=desc&sort_by=price_change_percentage_24h&per_page=500&page=1"
           );
           return res.data
-            .sort((a, b) => b.price_change_percentage_24h - a.price_change_percentage_24h)
+            .sort((a: any, b: any) => b.price_change_percentage_24h - a.price_change_percentage_24h)
             .splice(0, 3);
         },
 
@@ -97,7 +101,7 @@ const CardsDisplay = () => {
   if (gainers.isLoading) return <div></div>;
   return (
     <div className="hidden lg:flex items-center justify-center gap-2 mt-4">
-      <CardBase secondArray={trending.data} third={gainers.data} />
+      <CardBase trendingArray={trending.data} gainersArray={gainers.data} />
     </div>
   );
 };
