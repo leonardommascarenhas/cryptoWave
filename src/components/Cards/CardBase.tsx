@@ -48,6 +48,15 @@ const CardBase = ({ secondArray, third }: Props) => {
               <AiTwotoneFire size={28} />
             </span>
             <h2 className="text-xl"></h2>
+            {third.map(({ image, id }, index) => (
+              <div className="flex items-center gap-3">
+                <span className="text-gray-400 font-semibold">{index + 1}</span>
+                <div className="flex items-center gap-2">
+                  <img src={image} alt="" className="w-4 h-4 rounded-full" />
+                  <h2>{id}</h2>
+                </div>
+              </div>
+            ))}
           </div>
         </SwiperSlide>
       </Swiper>
@@ -70,16 +79,16 @@ const CardsDisplay = () => {
 
       {
         queryKey: ["gainers"],
-        queryFn: async () =>
-          axios
-            .get("https://api.coingecko.com/api/v3/coins/markets", {
-              params: {
-                vs_currency: "usd",
-              },
-            })
-            .then((res) =>
-              res.data.sort((a, b) => b.price_change_percentage_24h - a.price_change_percentage_24h)
-            ),
+        queryFn: async () => {
+          const res = await axios.get(
+            "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=desc&sort_by=price_change_percentage_24h&per_page=500&page=1"
+          );
+          return res.data
+            .sort((a, b) => b.price_change_percentage_24h - a.price_change_percentage_24h)
+            .splice(0, 3);
+        },
+
+        staleTime: 300000,
       },
     ],
   });
