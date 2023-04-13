@@ -17,7 +17,7 @@
         @apply relative flex items-center justify-center h-8 w-8 px-2 rounded-full text-white
     }
     .arrow-up{
-         @apply hidden group-hover:block absolute -bottom-0 w-0 h-0 border-l-8 border-l-transparent border-b-8 border-b-gray-50 border-r-8 border-r-transparent dark:border-b-dark-700;
+         @apply w-0 h-0 border-l-8 border-l-transparent border-b-8  border-r-8 border-r-transparent;
     }
     .sun-icon{
         @apply w-full h-full text-gray-100 bg-dark-600 rounded-lg p-1.5
@@ -35,6 +35,6 @@
         @apply w-full h-full rounded-lg
     }
     .trendingSlides{
-        @apply flex flex-col justify-center gap-4 bg-white dark:bg-dark-500 p-3
+        @apply flex flex-col justify-center gap-4 bg-white dark:bg-dark-500 p-4
     }
 }
