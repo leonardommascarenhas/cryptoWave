@@ -92,40 +92,10 @@ const CardBase = ({ trendingArray, gainersLosersArray }: Props) => {
   );
 };
 
-const CardsDisplay = () => {
-  const [trending, gainers] = useQueries({
-    queries: [
-      {
-        queryKey: ["trending"],
-        queryFn: async () =>
-          axios
-            .get("https://api.coingecko.com/api/v3/search/trending")
-            .then((res) => res.data.coins.splice(0, 3)),
-        staleTime: 30000,
-        refetchOnWindowFocus: false,
-      },
-
-      {
-        queryKey: ["gainers"],
-        queryFn: async () => {
-          const res = await axios.get(
-            "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=desc&sort_by=price_change_percentage_24h&per_page=500&page=1"
-          );
-          return res.data.sort(
-            (a: any, b: any) => b.price_change_percentage_24h - a.price_change_percentage_24h
-          );
-        },
-
-        staleTime: 1000,
-      },
-    ],
-  });
-
-  if (trending.isLoading) return <div></div>;
-  if (gainers.isLoading) return <div></div>;
+const CardsDisplay = ({ trending, coinData }: any) => {
   return (
     <div className="hidden lg:flex items-center justify-center gap-2 mt-4">
-      <CardBase trendingArray={trending.data} gainersLosersArray={gainers.data} />
+      <CardBase trendingArray={trending} gainersLosersArray={coinData} />
     </div>
   );
 };
