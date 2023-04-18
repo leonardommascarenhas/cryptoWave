@@ -1,4 +1,3 @@
-import React from "react";
 import { BsTriangleFill } from "react-icons/bs";
 
 interface Props {

@@ -1,8 +1,6 @@
-import { useQueries } from "@tanstack/react-query";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper";
 import DisplayPercentage from "./DisplayPercentage";
-import axios from "axios";
 import "swiper/css/bundle";
 import "swiper/css/pagination";
 import "swiper/css/autoplay";
@@ -30,9 +28,14 @@ const CardBase = ({ trendingArray, gainersLosersArray }: Props) => {
     <article className="h-52 w-1/3 flex items-center dark:text-white text-base font-semibold  ">
       <Swiper pagination={{ clickable: true }} modules={[Pagination, Autoplay]} autoplay={true}>
         <SwiperSlide className="trendingSlides">
-          <div className="-ml-2 flex items-center gap-1">
-            <span className="text-xl">🔥</span>
-            <h3 className="text-xl">Trending</h3>
+          <div className="-ml-2 flex items-center justify-between gap-1">
+            <div className="flex">
+              <span className="text-xl">🔥</span>
+              <h3 className="text-xl">Trending</h3>
+            </div>
+            <a href="/" className="text-xs mt-1 text-blue-400">
+              More &gt;
+            </a>
           </div>
           <ul className="flex flex-col gap-3">
             {trendingArray.map(({ item: { small, name } }, index) => (
@@ -47,9 +50,14 @@ const CardBase = ({ trendingArray, gainersLosersArray }: Props) => {
           </ul>
         </SwiperSlide>
         <SwiperSlide className="trendingSlides">
-          <div className="-ml-2 flex items-center gap-1">
-            <span className="text-xl">🚀</span>
-            <h3 className="text-xl">Gainers</h3>
+          <div className="-ml-2 flex items-center justify-between gap-1">
+            <div className="flex">
+              <span className="text-xl">🚀</span>
+              <h3 className="text-xl">Gainers</h3>
+            </div>
+            <a href="/" className="text-xs mt-1 text-blue-400">
+              More &gt;
+            </a>
           </div>
           <ul className="flex flex-col gap-3">
             {gainersLosersArray
@@ -67,9 +75,14 @@ const CardBase = ({ trendingArray, gainersLosersArray }: Props) => {
           </ul>
         </SwiperSlide>
         <SwiperSlide className="trendingSlides">
-          <div className="-ml-2 flex items-center gap-1">
-            <span className="text-xl">📉</span>
-            <h3 className="text-xl">Losers</h3>
+          <div className="-ml-2 flex items-center justify-between gap-1">
+            <div className="flex">
+              <span className="text-xl">📉</span>
+              <h3 className="text-xl">Losers</h3>
+            </div>
+            <a href="/" className="text-xs mt-1 text-blue-400">
+              More &gt;
+            </a>
           </div>
           <ul className="flex flex-col gap-3">
             {gainersLosersArray

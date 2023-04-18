@@ -1,7 +1,7 @@
 import React from "react";
 import { GiPodium } from "react-icons/gi";
 import { TbTextPlus } from "react-icons/tb";
-import { BsListUl, BsGraphUpArrow, BsGraphDownArrow } from "react-icons/bs";
+import { BsGraphUpArrow, BsGraphDownArrow } from "react-icons/bs";
 import NestedList from "./NestedList";
 
 const MenuUL = () => {

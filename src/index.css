@@ -35,6 +35,6 @@
         @apply w-full h-full rounded-lg
     }
     .trendingSlides{
-        @apply flex flex-col justify-center gap-4 bg-white dark:bg-dark-500 p-4
+        @apply flex flex-col justify-center gap-4 bg-white dark:bg-dark-500 px-6
     }
 }
