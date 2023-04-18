@@ -11,8 +11,8 @@ interface AppContextType {
   setCurrency: React.Dispatch<React.SetStateAction<string>>;
   currencySymbol: string;
   setCurrencySymbol: React.Dispatch<React.SetStateAction<string>>;
-  coinData: any[];
-  setCoinData: React.Dispatch<React.SetStateAction<any[]>>;
+  currencyToBtc: number;
+  setCurrencyToBtc: React.Dispatch<React.SetStateAction<number>>;
 }
 
 export const AppContext = createContext<AppContextType>({
@@ -22,17 +22,17 @@ export const AppContext = createContext<AppContextType>({
   setCurrency: () => {},
   currencySymbol: "R$",
   setCurrencySymbol: () => {},
-  coinData: [],
-  setCoinData: () => {},
+  currencyToBtc: 0,
+  setCurrencyToBtc: () => {},
 });
 
 function App() {
   const [theme, setTheme] = useState<string>("dark");
   const [currency, setCurrency] = useState<string>("brl");
   const [currencySymbol, setCurrencySymbol] = useState<string>("R$");
-  const [coinData, setCoinData] = useState<any[]>([]);
+  const [currencyToBtc, setCurrencyToBtc] = useState<number>(0);
 
-  const [trending, gainers] = useQueries({
+  const [trending, coinData] = useQueries({
     queries: [
       {
         queryKey: ["trending"],
@@ -45,7 +45,7 @@ function App() {
       },
 
       {
-        queryKey: ["gainers"],
+        queryKey: ["coinData"],
         queryFn: async () => {
           const res = await axios.get(
             "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=desc&sort_by=price_change_percentage_24h&per_page=500&page=1"
@@ -57,12 +57,18 @@ function App() {
 
         staleTime: 100000,
       },
+      {
+        queryKey: ["currencyToBtc"],
+        queryFn: async () => {
+          const res = await axios.get;
+        },
+      },
     ],
   });
   if (trending.isLoading) {
     return <div>Loading...</div>;
   }
-  if (gainers.isLoading) {
+  if (coinData.isLoading) {
     return <div>Loading...</div>;
   }
   return (
@@ -74,14 +80,14 @@ function App() {
         setCurrency,
         currencySymbol,
         setCurrencySymbol,
-        coinData,
-        setCoinData,
+        currencyToBtc,
+        setCurrencyToBtc,
       }}
     >
       <div className={`flex flex-col min-h-screen font-roboto ${theme}`}>
         <Header />
         <div className="px-4 bg-gray-200  dark:bg-gradient-to-b from-dark-600 to-dark-800 flex-1 ">
-          <CardsDisplay trending={trending.data} coinData={gainers.data} />
+          <CardsDisplay trending={trending.data} coinData={coinData.data} />
         </div>
       </div>
     </AppContext.Provider>
