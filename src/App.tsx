@@ -1,6 +1,6 @@
 import { createContext, useState } from "react";
 import { useQueries } from "@tanstack/react-query";
-import axios from "axios";
+import { getTrendingCoins, getCoinData, getExchangeRates } from "./services/ApiCalls";
 import Header from "./components/layout/Header/header";
 import CardsDisplay from "./components/Cards/CardBase";
 
@@ -37,32 +37,18 @@ function App() {
     queries: [
       {
         queryKey: ["trending"],
-        queryFn: async () =>
-          axios
-            .get("https://api.coingecko.com/api/v3/search/trending")
-            .then((res) => res.data.coins.splice(0, 3)),
+        queryFn: getTrendingCoins,
         staleTime: 30000,
         refetchOnWindowFocus: false,
       },
       {
         queryKey: ["coinData"],
-        queryFn: async () => {
-          const res = await axios.get(
-            "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=desc&sort_by=price_change_percentage_24h&per_page=500&page=1"
-          );
-          return res.data.sort(
-            (a: any, b: any) => b.price_change_percentage_24h - a.price_change_percentage_24h
-          );
-        },
-
+        queryFn: getCoinData,
         staleTime: 100000,
       },
       {
         queryKey: ["btcToExchange"],
-        queryFn: async () => {
-          const res = await axios.get("https://api.coingecko.com/api/v3/exchange_rates");
-          return res.data;
-        },
+        queryFn: getExchangeRates,
       },
     ],
   });

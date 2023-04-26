@@ -9,22 +9,14 @@ import Logo from "../assets/Logo";
 import axios from "axios";
 import MenuUL from "../assets/MenuUL/MenuUL";
 import { AppContext } from "../../../App";
+import { getGlobalCoinData } from "../../../services/ApiCalls";
 
 const Header: React.FC = () => {
   const { currency, setCurrency } = useContext(AppContext);
   const [isActive, setIsActive] = useState(false);
   const { isLoading, isError, data } = useQuery({
     queryKey: ["global"],
-    queryFn: async () => {
-      return axios
-        .get("https://api.coingecko.com/api/v3/global/")
-        .then((res) => {
-          return res.data;
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    },
+    queryFn: getGlobalCoinData,
   });
   if (isLoading) {
     return <div></div>;
