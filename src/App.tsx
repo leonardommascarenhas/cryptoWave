@@ -3,6 +3,7 @@ import { useQueries } from "@tanstack/react-query";
 import { getTrendingCoins, getCoinData, getExchangeRates } from "./services/ApiCalls";
 import Header from "./components/layout/Header/header";
 import CardsDisplay from "./components/Cards/CardBase";
+import Body from "./components/layout/Body/Body";
 
 interface AppContextType {
   theme: string;
@@ -76,6 +77,7 @@ function App() {
             coinData={coinData.data}
             btcToExchange={btcToExchange.data}
           />
+          <Body />
         </div>
       </div>
     </AppContext.Provider>
