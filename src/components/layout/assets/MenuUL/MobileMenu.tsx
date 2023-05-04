@@ -2,10 +2,10 @@ import { useState, useEffect } from "react";
 import { AiOutlineClose, AiOutlineInstagram, AiOutlineGithub } from "react-icons/ai";
 import { BsLinkedin } from "react-icons/bs";
 
-import Logo from "./assets/Logo";
-import MenuUL from "./assets/MenuUL/MenuUL";
-import ThemeToggle from "../Buttons&Selects/ThemeToggle";
-import CurrencySelect from "../Buttons&Selects/CurrencySelect";
+import Logo from "../Logo";
+import MenuUL from "./MenuUL";
+import ThemeToggle from "../../../Buttons&Selects/ThemeToggle";
+import CurrencySelect from "../../../Buttons&Selects/CurrencySelect";
 
 interface Props {
   toggleMenu: boolean;

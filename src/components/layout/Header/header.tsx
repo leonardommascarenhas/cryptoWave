@@ -4,7 +4,7 @@ import { AiOutlineLogin } from "react-icons/ai";
 import { HiMagnifyingGlass } from "react-icons/hi2";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { HeaderBar } from "./HeaderBar";
-import MobileMenu from "../MobileMenu";
+import MobileMenu from "../assets/MenuUL/MobileMenu";
 import Logo from "../assets/Logo";
 import MenuUL from "../assets/MenuUL/MenuUL";
 import { AppContext } from "../../../App";
