@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { AppContext, QueryContext } from "../../App";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper";
-import DisplayPercentage from "../Reusables/DisplayPercentage";
+import DisplayPercentage from "../layout/assets/Reusables/DisplayPercentage";
 import CardTitle from "./CardTitle";
 import "swiper/css/bundle";
 import "swiper/css/pagination";
