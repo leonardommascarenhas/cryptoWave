@@ -1,4 +1,6 @@
-import { createContext, useState } from "react";
+// App.tsx
+
+import React, { createContext, useState } from "react";
 import { useQueries } from "@tanstack/react-query";
 import { getTrendingCoins, getCoinData, getExchangeRates } from "./services/ApiCalls";
 import Header from "./components/layout/Header/header";
@@ -27,14 +29,27 @@ export const AppContext = createContext<AppContextType>({
   setBTCToCurrency: () => {},
 });
 
+interface QueryContextType {
+  isLoading: boolean;
+  trending: any;
+  coinData: any;
+  btcToExchange: any;
+}
+
+export const QueryContext = createContext<QueryContextType>({
+  isLoading: true,
+  trending: null,
+  coinData: null,
+  btcToExchange: null,
+});
+
 function App() {
   const [theme, setTheme] = useState<string>("dark");
   const [currency, setCurrency] = useState<string>("brl");
   const [currencySymbol, setCurrencySymbol] = useState<string>("R$");
   const [BTCToCurrency, setBTCToCurrency] = useState<number>(0);
 
-  //API consumption that is going to be globally used
-  const [trending, coinData, btcToExchange] = useQueries({
+  const queries = useQueries({
     queries: [
       {
         queryKey: ["trending"],
@@ -53,9 +68,9 @@ function App() {
       },
     ],
   });
-  if (trending.isLoading || coinData.isLoading || btcToExchange.isLoading) {
-    return <div>Loading...</div>;
-  }
+
+  const isLoading = queries.some((q) => q.isLoading);
+
   return (
     <AppContext.Provider
       value={{
@@ -69,17 +84,26 @@ function App() {
         setBTCToCurrency,
       }}
     >
-      <div className={`flex flex-col min-h-screen font-roboto ${theme}`}>
-        <Header />
-        <div className="px-4 bg-gray-200  dark:bg-gradient-to-b from-dark-600 to-dark-800 flex-1 ">
-          <CardsDisplay
-            trending={trending.data}
-            coinData={coinData.data}
-            btcToExchange={btcToExchange.data}
-          />
-          <Body />
-        </div>
-      </div>
+      <QueryContext.Provider
+        value={{
+          isLoading,
+          trending: queries[0].data,
+          coinData: queries[1].data,
+          btcToExchange: queries[2].data,
+        }}
+      >
+        {isLoading ? (
+          <p>Loading...</p>
+        ) : (
+          <div className={`flex flex-col min-h-screen font-roboto ${theme} dark:text-white`}>
+            <Header />
+            <div className="px-4 bg-gray-200  dark:bg-gradient-to-b from-dark-600 to-dark-800 flex-1 ">
+              <CardsDisplay />
+              <Body />
+            </div>
+          </div>
+        )}
+      </QueryContext.Provider>
     </AppContext.Provider>
   );
 }
