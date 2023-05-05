@@ -12,9 +12,8 @@ export const getExchangeRates = async () => {
 
 export const getCoinData = async () => {
   const res = await axios.get(
-    "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=desc&sort_by=price_change_percentage_24h&per_page=500&page=1"
+   "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=250&page=1&sparkline=false&price_change_percentage=1h%2C24h%2C7d&locale=en"
   );
-  console.log(res.data)
   return res.data
 };
 

@@ -8,6 +8,52 @@
     z-index: 0;
 }
 
+table {
+  font-family: "Fraunces", serif;
+  font-size: 125%;
+  white-space: nowrap;
+  margin: 0;
+  border: none;
+  border-collapse: separate;
+  border-spacing: 0;
+  table-layout: fixed;
+  border: 1px solid black;
+}
+table td,
+table th {
+  border: 1px solid black;
+  padding: 0.5rem 1rem;
+}
+table thead th {
+  padding: 3px;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  width: 25vw;
+}
+table td {
+  padding: 4px 5px;
+  text-align: center;
+}
+
+table tbody th {
+  font-weight: 100;
+  font-style: italic;
+  text-align: left;
+  position: relative;
+}
+table thead th:first-child {
+  position: sticky;
+  left: 0;
+  z-index: 2;
+}
+table tbody th {
+  position: sticky;
+  left: 0;
+  z-index: 1;
+}
+
+
 
 @layer components{
     .header-icon{

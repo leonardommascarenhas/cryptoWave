@@ -35,14 +35,17 @@ const CardsDisplay = () => {
 const CardBase = () => {
   const { currency, currencySymbol } = useContext(AppContext);
   const { trending, coinData, btcToExchange } = useContext(QueryContext);
-  const gainersByPercentageSorting = (coinData: any) => {
+  function gainersByPercentageSorting(coinData: any) {
     const gainersLosers = useMemo(
-      () => coinData.sort((a: any, b: any) => b.price_change_percentage_24h - a.price_change_percentage_24h),
+      () =>
+        [...coinData].sort((a: any, b: any) => b.price_change_percentage_24h - a.price_change_percentage_24h),
       [coinData]
     );
     return gainersLosers;
-  };
+  }
   const gainersLosersArray = gainersByPercentageSorting(coinData);
+  console.log(coinData);
+  console.log(gainersLosersArray);
   return (
     <article className="h-52 w-1/3 flex items-center dark:text-white text-base font-semibold  ">
       <Swiper pagination={{ clickable: true }} modules={[Pagination, Autoplay]} autoplay={true}>

@@ -8,23 +8,38 @@ const MainTable = () => {
   const { coinData } = useContext(QueryContext);
   return (
     <div className="overflow-x-scroll">
-      <table className="table-fixed [&_tr>:first-child]:sticky [&_tr>:first-child]:left-0 [&_tr>:first-child]:z-10">
+      <table>
         <thead>
           <tr>
-            <th className="bg-white p-3">name</th>
-            <th className="">Price</th>
-            <th className="">1h%</th>
-            <th className="">24h%</th>
-            <th className="">7d%</th>
-            <th className="">Market</th>
-            <th className="">Volume(24h)</th>
-            <th className="">Circulating</th>
-            <th className="">Circulating</th>
-            <th className="">Circulating</th>
-            <th className="">Circulating</th>
+            <th className="bg-white py-2">name</th>
+            <th className="bg-red-500 ">Price</th>
+            <th className="min-w-100px]">1h%</th>
+            <th className="min-w-100px]">24h%</th>
+            <th className="min-w-100px]">7d%</th>
+            <th className="min-w-100px]">Market</th>
+            <th className="min-w-100px]">Volume(24h)</th>
+            <th className="min-w-100px]">Circulating</th>
+            <th className="min-w-100px]">Circulating</th>
+            <th className="min-w-100px]">Circulating</th>
+            <th className="min-w-100px]">Circulating</th>
           </tr>
         </thead>
-        <tbody></tbody>
+        <tbody>
+          {coinData.map((coin) => (
+            <Item
+              icon={coin.image}
+              name={coin.name}
+              symbol={coin.symbol}
+              price={coin.current_price}
+              hourPercentage={coin.price_change_percentage_1h_in_currency}
+              dayPercentage={coin.price_change_percentage_24h_in_currency}
+              weekPercentage={coin.price_change_percentage_7d_in_currency}
+              marketCap={coin.market_cap}
+              volume24h={coin.market_cap_change_24h}
+              circulatingSupply={coin.total_supply}
+            />
+          ))}
+        </tbody>
       </table>
     </div>
   );

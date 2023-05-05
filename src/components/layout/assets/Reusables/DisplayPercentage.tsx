@@ -1,14 +1,14 @@
 import { BsTriangleFill } from "react-icons/bs";
 
 interface Props {
-  num: number;
+  num?: number;
 }
 
-const DisplayPercentage = ({ num }: Props) => {
+const DisplayPercentage = ({ num = 0 }: Props) => {
   return (
     <div className={`flex items-center gap-1 ${num > 0 ? "text-green-600" : "text-red-700"} font-bold`}>
       <BsTriangleFill size={7} className={num > 0 ? "" : "rotate-180"} />
-      {num.toFixed(2)}
+      {num?.toFixed(2)}
     </div>
   );
 };
