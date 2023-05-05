@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useMemo } from "react";
 import { AppContext, QueryContext } from "../../App";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper";
@@ -8,7 +8,7 @@ import "swiper/css/bundle";
 import "swiper/css/pagination";
 import "swiper/css/autoplay";
 
-interface trending {
+interface TrendingItem {
   item: {
     small?: string; //algumas moedas não tem um simbolo na API
     name: string;
@@ -35,14 +35,21 @@ const CardsDisplay = () => {
 const CardBase = () => {
   const { currency, currencySymbol } = useContext(AppContext);
   const { trending, coinData, btcToExchange } = useContext(QueryContext);
-
+  const gainersByPercentageSorting = (coinData: any) => {
+    const gainersLosers = useMemo(
+      () => coinData.sort((a: any, b: any) => b.price_change_percentage_24h - a.price_change_percentage_24h),
+      [coinData]
+    );
+    return gainersLosers;
+  };
+  const gainersLosersArray = gainersByPercentageSorting(coinData);
   return (
     <article className="h-52 w-1/3 flex items-center dark:text-white text-base font-semibold  ">
       <Swiper pagination={{ clickable: true }} modules={[Pagination, Autoplay]} autoplay={true}>
         <SwiperSlide className="trendingSlides">
           <CardTitle emoji="🔥" title="Trending" />
           <ul className="flex flex-col gap-3">
-            {trending.map(({ item: { small, name, price_btc } }: trending, index: number) => (
+            {trending.map(({ item: { small, name, price_btc } }: TrendingItem, index: number) => (
               <li className="flex items-center justify-between gap-3">
                 <div className="flex items-center gap-2">
                   <span className="text-xs text-gray-400 font-semibold">{index + 1}</span>
@@ -59,7 +66,7 @@ const CardBase = () => {
         <SwiperSlide className="trendingSlides">
           <CardTitle emoji="🚀" title="Gainers" />
           <ul className="flex flex-col gap-3">
-            {coinData
+            {gainersLosersArray
               .map(({ image, id, price_change_percentage_24h }: gainersLosers, index: number) => (
                 <li className="flex items-center justify-between gap-3">
                   <div className="flex items-center gap-2">
@@ -76,7 +83,7 @@ const CardBase = () => {
         <SwiperSlide className="trendingSlides">
           <CardTitle emoji="📉" title="Losers" />
           <ul className="flex flex-col gap-3">
-            {coinData
+            {gainersLosersArray
               .slice(-3)
               .reverse()
               .map(({ image, id, price_change_percentage_24h }: gainersLosers, index: number) => (

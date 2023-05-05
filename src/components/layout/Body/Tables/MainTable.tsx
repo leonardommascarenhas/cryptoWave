@@ -1,7 +1,11 @@
-import React from "react";
+import { useContext } from "react";
+import { AppContext } from "../../../../App";
+import { QueryContext } from "../../../../App";
 import Item from "./Item";
 
 const MainTable = () => {
+  const { currency, currencySymbol } = useContext(AppContext);
+  const { coinData } = useContext(QueryContext);
   return (
     <div className="overflow-x-scroll">
       <table className="table-fixed [&_tr>:first-child]:sticky [&_tr>:first-child]:left-0 [&_tr>:first-child]:z-10">

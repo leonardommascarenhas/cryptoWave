@@ -1,7 +1,6 @@
 import React from "react";
 
 interface Props {
-  id: number;
   icon: string;
   name: string;
   price: number;
@@ -12,7 +11,6 @@ interface Props {
 }
 
 const Item = ({
-  id,
   icon,
   name,
   price,
@@ -23,7 +21,6 @@ const Item = ({
 }: Props) => {
   return (
     <tr>
-      <td>{id}</td>
       <td>
         <img src={icon} />
         {name}
