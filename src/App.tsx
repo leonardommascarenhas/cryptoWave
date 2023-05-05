@@ -97,7 +97,7 @@ function App() {
         ) : (
           <div className={`flex flex-col min-h-screen font-roboto ${theme} dark:text-white`}>
             <Header />
-            <div className="px-4 bg-gray-200  dark:bg-gradient-to-b from-dark-600 to-dark-800 flex-1 ">
+            <div className=" bg-gray-200  dark:bg-gradient-to-b from-dark-600 to-dark-800 flex-1 ">
               <CardsDisplay />
               <Body />
             </div>

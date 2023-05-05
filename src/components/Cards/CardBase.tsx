@@ -49,9 +49,9 @@ const CardBase = () => {
                   <img src={small} alt="" className="w-4 h-4 rounded-full" />
                   <h3>{name}</h3>
                 </div>
-                <div className="text-xs">{`${currencySymbol}: ${(
-                  price_btc * btcToExchange.rates[currency].value
-                ).toFixed(6)}`}</div>
+                <div className="text-xs">{`${currencySymbol}: ${parseFloat(
+                  (price_btc * btcToExchange.rates[currency].value).toFixed(6)
+                )}`}</div>
               </li>
             ))}
           </ul>
