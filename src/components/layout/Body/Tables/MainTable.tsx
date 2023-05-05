@@ -25,7 +25,7 @@ const MainTable = () => {
           </tr>
         </thead>
         <tbody>
-          {coinData.map((coin) => (
+          {coinData.map((coin: any) => (
             <Item
               icon={coin.image}
               name={coin.name}
