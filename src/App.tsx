@@ -4,7 +4,7 @@ import React, { createContext, useState } from "react";
 import { useQueries } from "@tanstack/react-query";
 import { getTrendingCoins, getCoinData, getExchangeRates } from "./services/ApiCalls";
 import Header from "./components/layout/Header/header";
-import CardsDisplay from "./components/Cards/CardBase";
+import CardsDisplay from "./components/layout/Body/Cards/CardBase";
 import Body from "./components/layout/Body/Body";
 
 interface AppContextType {
@@ -48,23 +48,25 @@ function App() {
   const [currency, setCurrency] = useState<string>("brl");
   const [currencySymbol, setCurrencySymbol] = useState<string>("R$");
   const [BTCToCurrency, setBTCToCurrency] = useState<number>(0);
-
   const queries = useQueries({
     queries: [
       {
         queryKey: ["trending"],
         queryFn: getTrendingCoins,
-        staleTime: 30000,
+        staleTime: 65000,
         refetchOnWindowFocus: false,
       },
       {
         queryKey: ["coinData"],
         queryFn: getCoinData,
-        staleTime: 100000,
+        staleTime: 65000,
+        refetchOnWindowFocus: false,
       },
       {
         queryKey: ["btcToExchange"],
         queryFn: getExchangeRates,
+        staleTime: 65000,
+        refetchOnWindowFocus: false,
       },
     ],
   });
@@ -97,10 +99,7 @@ function App() {
         ) : (
           <div className={`flex flex-col min-h-screen font-roboto ${theme} dark:text-white`}>
             <Header />
-            <div className=" bg-gray-200  dark:bg-gradient-to-b from-dark-600 to-dark-800 flex-1 ">
-              <CardsDisplay />
-              <Body />
-            </div>
+            <Body />
           </div>
         )}
       </QueryContext.Provider>

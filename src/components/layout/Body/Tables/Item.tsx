@@ -27,8 +27,8 @@ const Item = ({
   circulatingSupply,
 }: Props) => {
   return (
-    <tr>
-      <th className="flex items-center">
+    <tr className="">
+      <th className="flex items-center w-[240px]">
         <img src={icon} className="w-6 h-6" />
         <span>{name}</span>
         <span>{symbol}</span>
