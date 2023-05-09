@@ -28,15 +28,17 @@ const Item = ({
 }: Props) => {
   return (
     <tr className="text-lg]">
-      <td className="flex items-center w-1/4 min-w-[122px] p-3 gap-3">
-        <img src={icon} className="w-6 h-6" />
-        <div className="flex flex-col">
-          <span>{name}</span>
-          <span>{symbol.toUpperCase()}</span>
+      <td className="w-1/4 min-w-[122px] p-5">
+        <div className="flex items-center gap-3">
+          <img src={icon} className="w-6 h-6" />
+          <div className="flex flex-col">
+            <span>{name}</span>
+            <span>{symbol.toUpperCase()}</span>
+          </div>
         </div>
       </td>
       <td className="">{price}</td>
-      <td>
+      <td className="text-center">
         <DisplayPercentage num={hourPercentage} />
       </td>
       <td>{<DisplayPercentage num={dayPercentage} />}</td>
