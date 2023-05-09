@@ -1,10 +1,11 @@
-import React from "react";
+import { useContext } from "react";
 import DisplayPercentage from "../../assets/Reusables/DisplayPercentage";
+import { AppContext } from "../../../../App";
 
 interface Props {
   icon: string;
   name: string;
-  symbol: string;
+  coinAcronym: string;
   price: number;
   hourPercentage: number;
   dayPercentage: number;
@@ -17,7 +18,7 @@ interface Props {
 const Item = ({
   icon,
   name,
-  symbol,
+  coinAcronym,
   price,
   hourPercentage,
   dayPercentage,
@@ -26,19 +27,21 @@ const Item = ({
   volume24h,
   circulatingSupply,
 }: Props) => {
+  const { currency, currencySymbol } = useContext(AppContext);
   return (
-    <tr className="text-lg]">
-      <td className="w-1/4 min-w-[122px] p-5">
-        <div className="flex items-center gap-3">
-          <img src={icon} className="w-6 h-6" />
-          <div className="flex flex-col">
-            <span>{name}</span>
-            <span>{symbol.toUpperCase()}</span>
-          </div>
+    <tr className="text-md">
+      <td className="py-4">
+        <div className="flex items-center justify-start gap-3">
+          <img src={icon} className="w-8 h-8" />
+          <span>{name}</span>
+          <span>{coinAcronym.toUpperCase()}</span>
         </div>
       </td>
-      <td className="">{price}</td>
-      <td className="text-center">
+      <td>
+        {currencySymbol}
+        {price}
+      </td>
+      <td className="text-center ">
         <DisplayPercentage num={hourPercentage} />
       </td>
       <td>{<DisplayPercentage num={dayPercentage} />}</td>
@@ -46,7 +49,10 @@ const Item = ({
         <DisplayPercentage num={weekPercentage} />
       </td>
       <td>{marketCap}</td>
-      <td>{volume24h}</td>
+      <td>
+        {currencySymbol}
+        {volume24h}
+      </td>
       <td>{circulatingSupply ? circulatingSupply : "sem acesso"}</td>
     </tr>
   );

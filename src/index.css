@@ -16,31 +16,58 @@ table {
   border-spacing: 0;
   table-layout: fixed;
 }
-table td,
 table th {
-  border: 1px solid black
+  border: 0.2px solid black
 }
 table thead th {
   padding: 12px;
   position: sticky;
   top: 0;
   z-index: 1;
+  text-align: right;
 }
 table td {
-  padding: 4px;
+  width: 10px;
   text-align: center;
+  border-bottom: 1px solid black;
 }
 
 table tbody td {
-  font-weight: 100;
   position: relative;
-  text-align: center;
+  text-align: right;
 }
+table tbody .item-td {
+  width: 12%;
+}
+
 table thead th:first-child {
   position: sticky;
   left: 0;
   z-index: 2;
 }
+thead th:nth-child(1) {
+  width: 25%;
+  text-align: left;
+}
+
+thead th:nth-child(2) {
+  width: 15%;
+}
+
+thead th:nth-child(3), thead th:nth-child(4), thead th:nth-child(5) {
+  width: 10%;
+  min-width: 80px;
+}
+thead th:nth-child(6) {
+  width: 15%;
+}
+thead th:nth-child(7) {
+  width: 15%;
+}
+thead th:nth-child(8) {
+  width: 15%;
+}
+
 table tbody td {
   position: sticky;
   left: 0;

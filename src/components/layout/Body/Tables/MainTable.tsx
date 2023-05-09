@@ -1,14 +1,12 @@
 import { useContext } from "react";
-import { AppContext } from "../../../../App";
 import { QueryContext } from "../../../../App";
 import Item from "./Item";
 
 const MainTable = () => {
-  const { currency, currencySymbol } = useContext(AppContext);
   const { coinData } = useContext(QueryContext);
   return (
     <div className="overflow-x-auto cursor-grab">
-      <table className="w-screen min-w-[1000px]">
+      <table className="w-full min-w-[1024px] ">
         <thead>
           <tr>
             <th className="bg-white text-black">Name</th>
@@ -22,17 +20,17 @@ const MainTable = () => {
           </tr>
         </thead>
         <tbody>
-          {coinData.map((coin: any) => (
+          {coinData.map((coin: any, index: number) => (
             <Item
               icon={coin.image}
               name={coin.name}
-              symbol={coin.symbol}
+              coinAcronym={coin.symbol}
               price={coin.current_price}
               hourPercentage={coin.price_change_percentage_1h_in_currency}
               dayPercentage={coin.price_change_percentage_24h_in_currency}
               weekPercentage={coin.price_change_percentage_7d_in_currency}
               marketCap={coin.market_cap}
-              volume24h={coin.market_cap_change_24h}
+              volume24h={coin.market_cap_change_24h?.toFixed(0)}
               circulatingSupply={coin.total_supply}
             />
           ))}

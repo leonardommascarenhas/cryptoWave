@@ -11,9 +11,9 @@ import { AppContext } from "../../../App";
 import { getGlobalCoinData } from "../../../services/ApiCalls";
 
 const Header: React.FC = () => {
-  const { currency, setCurrency } = useContext(AppContext);
+  const { currency } = useContext(AppContext);
   const [isActive, setIsActive] = useState(false);
-  const { isLoading, isError, data } = useQuery({
+  const { isLoading, data } = useQuery({
     queryKey: ["global"],
     queryFn: getGlobalCoinData,
   });
