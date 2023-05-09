@@ -7,20 +7,17 @@ const MainTable = () => {
   const { currency, currencySymbol } = useContext(AppContext);
   const { coinData } = useContext(QueryContext);
   return (
-    <div className="overflow-x-scroll">
-      <table>
+    <div className="overflow-x-auto cursor-grab">
+      <table className="w-screen min-w-[1000px]">
         <thead>
           <tr>
-            <th className="bg-white">name</th>
+            <th className="bg-white text-black">Name</th>
             <th className="bg-red-500 ">Price</th>
             <th className="">1h%</th>
             <th className="">24h%</th>
             <th className="">7d%</th>
             <th className="">Market</th>
             <th className="">Volume(24h)</th>
-            <th className="">Circulating</th>
-            <th className="">Circulating</th>
-            <th className="">Circulating</th>
             <th className="">Circulating</th>
           </tr>
         </thead>

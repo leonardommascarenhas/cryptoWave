@@ -27,21 +27,21 @@ table thead th {
   z-index: 1;
 }
 table td {
-  padding: px;
+  padding: 4px;
   text-align: center;
 }
 
-table tbody th {
+table tbody td {
   font-weight: 100;
-  text-align: left;
   position: relative;
+  text-align: center;
 }
 table thead th:first-child {
   position: sticky;
   left: 0;
   z-index: 2;
 }
-table tbody th {
+table tbody td {
   position: sticky;
   left: 0;
   z-index: 1;

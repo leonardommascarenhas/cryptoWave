@@ -27,12 +27,14 @@ const Item = ({
   circulatingSupply,
 }: Props) => {
   return (
-    <tr className="">
-      <th className="flex items-center w-[240px]">
+    <tr className="text-lg]">
+      <td className="flex items-center w-1/4 min-w-[122px] p-3 gap-3">
         <img src={icon} className="w-6 h-6" />
-        <span>{name}</span>
-        <span>{symbol}</span>
-      </th>
+        <div className="flex flex-col">
+          <span>{name}</span>
+          <span>{symbol.toUpperCase()}</span>
+        </div>
+      </td>
       <td className="">{price}</td>
       <td>
         <DisplayPercentage num={hourPercentage} />
