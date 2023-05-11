@@ -7,7 +7,7 @@ interface Props {
 const DisplayPercentage = ({ num = 0 }: Props) => {
   return (
     <div
-      className={`flex items-center justify-center gap-1 ${
+      className={`flex items-center justify-end gap-1 ${
         num > 0 ? "text-green-600" : "text-red-700"
       } font-bold`}
     >

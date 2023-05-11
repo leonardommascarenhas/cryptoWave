@@ -27,11 +27,11 @@ const Item = ({
   volume24h,
   circulatingSupply,
 }: Props) => {
-  const { currency, currencySymbol } = useContext(AppContext);
+  const { currencySymbol } = useContext(AppContext);
   return (
-    <tr className="text-md">
-      <td className="py-4">
-        <div className="flex items-center justify-start gap-3">
+    <tr className=" text-sm">
+      <td className="dark:bg-dark-650 py-4">
+        <div className="flex items-center  gap-3">
           <img src={icon} className="w-8 h-8" />
           <span>{name}</span>
           <span>{coinAcronym.toUpperCase()}</span>
@@ -41,7 +41,7 @@ const Item = ({
         {currencySymbol}
         {price}
       </td>
-      <td className="text-center ">
+      <td>
         <DisplayPercentage num={hourPercentage} />
       </td>
       <td>{<DisplayPercentage num={dayPercentage} />}</td>
@@ -53,7 +53,7 @@ const Item = ({
         {currencySymbol}
         {volume24h}
       </td>
-      <td>{circulatingSupply ? circulatingSupply : "sem acesso"}</td>
+      <td>{circulatingSupply ? `${circulatingSupply + coinAcronym.toUpperCase()}` : "sem acesso"}</td>
     </tr>
   );
 };

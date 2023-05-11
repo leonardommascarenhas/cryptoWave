@@ -16,11 +16,8 @@ table {
   border-spacing: 0;
   table-layout: fixed;
 }
-table th {
-  border: 0.2px solid black
-}
 table thead th {
-  padding: 12px;
+  padding: 12px 0;
   position: sticky;
   top: 0;
   z-index: 1;
@@ -28,13 +25,12 @@ table thead th {
 }
 table td {
   width: 10px;
-  text-align: center;
   border-bottom: 1px solid black;
 }
 
 table tbody td {
   position: relative;
-  text-align: right;
+  text-align: right
 }
 table tbody .item-td {
   width: 12%;
@@ -45,25 +41,35 @@ table thead th:first-child {
   left: 0;
   z-index: 2;
 }
+table tbody td:first-child {
+  position: sticky;
+  left: 0;
+  z-index: 2;
+}
 thead th:nth-child(1) {
-  width: 25%;
+  width: 15%;
   text-align: left;
 }
 
 thead th:nth-child(2) {
-  width: 15%;
+  width: 10%;
 }
 
-thead th:nth-child(3), thead th:nth-child(4), thead th:nth-child(5) {
+thead th:nth-child(3),
+thead th:nth-child(4),
+thead th:nth-child(5) {
   width: 10%;
-  min-width: 80px;
+  min-width: 40px;
 }
+
 thead th:nth-child(6) {
-  width: 15%;
+  width: 10%;
 }
+
 thead th:nth-child(7) {
-  width: 15%;
+  width: 10%;
 }
+
 thead th:nth-child(8) {
   width: 15%;
 }

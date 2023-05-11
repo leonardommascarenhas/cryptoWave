@@ -6,17 +6,17 @@ const MainTable = () => {
   const { coinData } = useContext(QueryContext);
   return (
     <div className="overflow-x-auto cursor-grab">
-      <table className="w-full min-w-[1024px] ">
+      <table className="w-full min-w-[1024px]">
         <thead>
           <tr>
-            <th className="bg-white text-black">Name</th>
+            <th className="bg-white text-black">Name</th> {/*bg should be the same as the container   */}
             <th className="bg-red-500 ">Price</th>
-            <th className="">1h%</th>
-            <th className="">24h%</th>
-            <th className="">7d%</th>
-            <th className="">Market</th>
-            <th className="">Volume(24h)</th>
-            <th className="">Circulating</th>
+            <th>1h%</th>
+            <th>24h%</th>
+            <th>7d%</th>
+            <th>Market</th>
+            <th>Volume(24h)</th>
+            <th>Circulating</th>
           </tr>
         </thead>
         <tbody>
@@ -31,7 +31,7 @@ const MainTable = () => {
               weekPercentage={coin.price_change_percentage_7d_in_currency}
               marketCap={coin.market_cap}
               volume24h={coin.market_cap_change_24h?.toFixed(0)}
-              circulatingSupply={coin.total_supply}
+              circulatingSupply={coin.total_supply?.toFixed(0)}
             />
           ))}
         </tbody>
