@@ -53,7 +53,7 @@ const Item = ({
         {currencySymbol}
         {volume24h}
       </td>
-      <td>{circulatingSupply ? `${circulatingSupply + coinAcronym.toUpperCase()}` : "sem acesso"}</td>
+      <td>{circulatingSupply ? `${circulatingSupply + " " + coinAcronym.toUpperCase()}` : "sem acesso"}</td>
     </tr>
   );
 };

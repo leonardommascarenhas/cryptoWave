@@ -4,7 +4,6 @@ import React, { createContext, useState } from "react";
 import { useQueries } from "@tanstack/react-query";
 import { getTrendingCoins, getCoinData, getExchangeRates } from "./services/ApiCalls";
 import Header from "./components/layout/Header/header";
-import CardsDisplay from "./components/layout/Body/Cards/CardBase";
 import Body from "./components/layout/Body/Body";
 
 interface AppContextType {
@@ -58,7 +57,7 @@ function App() {
       },
       {
         queryKey: ["coinData"],
-        queryFn: getCoinData,
+        queryFn: () => getCoinData(currency),
         staleTime: 65000,
         refetchOnWindowFocus: false,
       },

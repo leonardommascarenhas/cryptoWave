@@ -1,9 +1,36 @@
-import { useContext } from "react";
+import { useState, useRef, useEffect, useContext } from "react";
 import { QueryContext } from "../../../../App";
 import Item from "./Item";
 
 const MainTable = () => {
   const { coinData } = useContext(QueryContext);
+  const [itemsToShow, setItemsToShow] = useState(30);
+  const lastItemRef = useRef<HTMLTableRowElement>(null);
+
+  const handleObserver = (entries: IntersectionObserverEntry[]) => {
+    const target = entries[0];
+    if (target.isIntersecting && itemsToShow < coinData.length) {
+      setItemsToShow(itemsToShow + 50);
+    }
+  };
+
+  useEffect(() => {
+    const options = {
+      root: null,
+      rootMargin: "0px",
+      threshold: 1.0,
+    };
+    const observer = new IntersectionObserver(handleObserver, options);
+    if (lastItemRef.current) {
+      observer.observe(lastItemRef.current);
+    }
+    return () => {
+      if (lastItemRef.current) {
+        observer.unobserve(lastItemRef.current);
+      }
+    };
+  }, [itemsToShow]);
+
   return (
     <div className="overflow-x-auto cursor-grab">
       <table className="w-full min-w-[1024px]">
@@ -20,8 +47,9 @@ const MainTable = () => {
           </tr>
         </thead>
         <tbody>
-          {coinData.map((coin: any, index: number) => (
+          {coinData.slice(0, itemsToShow).map((coin: any, index: number) => (
             <Item
+              key={coin.name}
               icon={coin.image}
               name={coin.name}
               coinAcronym={coin.symbol}
@@ -34,6 +62,7 @@ const MainTable = () => {
               circulatingSupply={coin.total_supply?.toFixed(0)}
             />
           ))}
+          <tr ref={lastItemRef}></tr>
         </tbody>
       </table>
     </div>
