@@ -30,7 +30,8 @@ module.exports = {
         'headerDesktop': '6fr 1fr'
       },
       fontFamily:{
-        roboto: ['Roboto', 'sans-serif']
+        roboto: ['Roboto', 'sans-serif'],
+        poppins: ['Poppins', 'sans-serif']
       },
       keyframes:{
       rightToLeft: {

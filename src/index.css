@@ -47,39 +47,22 @@ table tbody td:first-child {
   z-index: 2;
 }
 thead th:nth-child(1) {
-  width: 15%;
+  width: 22%;
   text-align: left;
 }
 
-thead th:nth-child(2) {
-  width: 10%;
-}
-
+thead th:nth-child(2),
 thead th:nth-child(3),
 thead th:nth-child(4),
 thead th:nth-child(5) {
-  width: 5%;
-  min-width: 40px;
+  width: 12%;
 }
 
-thead th:nth-child(6) {
-  width: 20%;
-}
-
-thead th:nth-child(7) {
-  width: 20%;
-}
-
+thead th:nth-child(6),
+thead th:nth-child(7),
 thead th:nth-child(8) {
   width: 15%;
 }
-
-table tbody td {
-  position: sticky;
-  left: 0;
-  z-index: 1;
-}
-
 
 
 @layer components{

@@ -40,9 +40,9 @@ const Item = ({
     return num.toLocaleString();
   }
   return (
-    <tr className=" text-sm">
-      <td className="dark:bg-dark-650 py-4">
-        <div className="flex items-center  gap-3">
+    <tr className=" text-sm md:text-base font-medium">
+      <td className="dark:bg-dark-650 py-4 md:py-6">
+        <div className="flex items-center gap-3">
           <img src={icon} className="w-8 h-8" />
           <span>{name}</span>
           <span>{coinAcronym.toUpperCase()}</span>

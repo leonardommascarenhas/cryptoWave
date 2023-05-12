@@ -32,18 +32,18 @@ const MainTable = () => {
   }, [itemsToShow]);
 
   return (
-    <div className="overflow-x-auto cursor-grab">
+    <div className="overflow-x-auto cursor-grab font-poppins">
       <table className="w-full min-w-[1024px]">
         <thead>
-          <tr>
-            <th className="bg-white text-black">Name</th> {/*bg should be the same as the container   */}
-            <th className="bg-red-500 ">Price</th>
-            <th>1h%</th>
-            <th>24h%</th>
-            <th>7d%</th>
-            <th>Market</th>
-            <th>Volume(24h)</th>
-            <th>Circulating</th>
+          <tr className="text-sm font-medium text-gray-500 uppercase">
+            <th className="py-3 text-left">Name</th>
+            <th className="py-3">Price</th>
+            <th className="py-3">1h%</th>
+            <th className="py-3">24h%</th>
+            <th className="py-3">7d%</th>
+            <th className="py-3">Market Cap</th>
+            <th className="py-3">Volume(24h)</th>
+            <th className="py-3">Circulating Supply</th>
           </tr>
         </thead>
         <tbody>
