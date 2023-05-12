@@ -25,7 +25,7 @@ table thead th {
 }
 table td {
   width: 10px;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid #222430;
 }
 
 table tbody td {
@@ -55,7 +55,7 @@ thead th:nth-child(2),
 thead th:nth-child(3),
 thead th:nth-child(4),
 thead th:nth-child(5) {
-  width: 12%;
+  width: 8%;
 }
 
 thead th:nth-child(6),

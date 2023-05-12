@@ -32,7 +32,7 @@ const MainTable = () => {
   }, [itemsToShow]);
 
   return (
-    <div className="overflow-x-auto cursor-grab font-poppins">
+    <div className="overflow-x-auto font-poppins ">
       <table className="w-full min-w-[1024px]">
         <thead>
           <tr className="text-sm font-medium text-gray-500 uppercase">
