@@ -57,7 +57,7 @@ function App() {
       },
       {
         queryKey: ["coinData"],
-        queryFn: () => getCoinData(currency),
+        queryFn: getCoinData,
         staleTime: 65000,
         refetchOnWindowFocus: false,
       },

@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import DisplayPercentage from "../../assets/Reusables/DisplayPercentage";
-import { AppContext } from "../../../../App";
+import { AppContext, QueryContext } from "../../../../App";
 
 interface Props {
   icon: string;
@@ -27,7 +27,18 @@ const Item = ({
   volume24h,
   circulatingSupply,
 }: Props) => {
-  const { currencySymbol } = useContext(AppContext);
+  const { currency, currencySymbol } = useContext(AppContext);
+  const { btcToExchange } = useContext(QueryContext);
+
+  let priceInCurrency = (price / btcToExchange.rates.usd.value) * btcToExchange.rates[currency].value;
+
+  function formatPrice(num: number) {
+    return num > 1 ? parseFloat(num.toFixed(2)) : parseFloat(num.toFixed(8));
+  }
+
+  function multiplyCoin(num: number) {
+    return num.toLocaleString();
+  }
   return (
     <tr className=" text-sm">
       <td className="dark:bg-dark-650 py-4">
@@ -37,10 +48,7 @@ const Item = ({
           <span>{coinAcronym.toUpperCase()}</span>
         </div>
       </td>
-      <td>
-        {currencySymbol}
-        {price}
-      </td>
+      <td>{`${currencySymbol}: ${formatPrice(priceInCurrency)}`}</td>
       <td>
         <DisplayPercentage num={hourPercentage} />
       </td>
@@ -48,10 +56,10 @@ const Item = ({
       <td>
         <DisplayPercentage num={weekPercentage} />
       </td>
-      <td>{marketCap}</td>
+      <td>{multiplyCoin(marketCap)}</td>
       <td>
         {currencySymbol}
-        {volume24h}
+        {multiplyCoin(volume24h)}
       </td>
       <td>{circulatingSupply ? `${circulatingSupply + " " + coinAcronym.toUpperCase()}` : "sem acesso"}</td>
     </tr>
