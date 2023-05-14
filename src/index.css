@@ -34,9 +34,6 @@ table tbody td {
   position: relative;
   text-align: right
 }
-table tbody .item-td {
-  width: 12%;
-}
 
 table thead th:first-child {
   position: sticky;
@@ -47,25 +44,28 @@ table tbody td:first-child {
   position: sticky;
   left: 0;
   z-index: 2;
+  white-space: pre-wrap;
+  text-overflow: ellipsis;
+  text-align: start;
 }
 thead th:nth-child(1) {
-  width: 22%;
+  width: 15%;
   text-align: left;
 }
 
 thead th:nth-child(2){
-  width: 11%
+  width: 10%
 }
 thead th:nth-child(3),
 thead th:nth-child(4),
 thead th:nth-child(5) {
-  width: 7%;
+  width: 8%;
 }
 
+thead th:nth-child(7)
 thead th:nth-child(6),
-thead th:nth-child(7),
-thead th:nth-child(8) {
-  width: 15%;
+thead th:nth-child(8){
+  width: 17%
 }
 
 

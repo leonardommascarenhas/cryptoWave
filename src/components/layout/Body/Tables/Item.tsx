@@ -27,33 +27,41 @@ const Item = ({
   volume24h,
   circulatingSupply,
 }: Props) => {
+  // Declare and initialize state
   const [isSmallScreen, setIsSmallScreen] = useState(false);
+
+  // Use context hooks to access data from parent components
   const { currency, currencySymbol } = useContext(AppContext);
   const { btcToExchange } = useContext(QueryContext);
 
+  // Effect hook to update state when screen size changes
   useEffect(() => {
     function handleResize() {
       setIsSmallScreen(window.innerWidth < 1240);
     }
 
-    // Set initial value on mount
     handleResize();
 
-    // Listen for window resize events
     window.addEventListener("resize", handleResize);
 
-    // Clean up event listener on unmount
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  // Convert a number from USD to the selected currency
   function usdToCurrency(num: number) {
     return (num / btcToExchange.rates.usd.value) * btcToExchange.rates[currency].value;
   }
 
+  // Format a large number with magnitude (K, M, B, T)
   function formatWithMagnitude(num: number): string {
     const absNum = Math.abs(num);
+
+    //check if the number is negative to give the sign
     const sign = Math.sign(num) === -1 ? "-" : "";
 
+    if (absNum >= 1000000000000) {
+      return sign + (absNum / 1000000000).toFixed(2) + "T";
+    }
     if (absNum >= 1000000000) {
       return sign + (absNum / 1000000000).toFixed(2) + "B";
     }
@@ -66,29 +74,41 @@ const Item = ({
     return sign + absNum.toString();
   }
 
+  // Format a number to a string with commas and/or decimal points
   function formatNumber(num: number) {
     const convertedNumber = usdToCurrency(num);
-    return isSmallScreen
-      ? formatWithMagnitude(convertedNumber)
-      : convertedNumber > 1
-      ? parseFloat(convertedNumber.toFixed(2)).toLocaleString()
-      : parseFloat(convertedNumber.toFixed(8)).toLocaleString();
+
+    if (isSmallScreen) {
+      return formatWithMagnitude(convertedNumber);
+    } else {
+      if (convertedNumber > 1) {
+        return parseFloat(convertedNumber.toFixed(2)).toLocaleString();
+      } else {
+        return parseFloat(convertedNumber.toFixed(8)).toLocaleString();
+      }
+    }
   }
 
+  // Format a price as a string with commas and decimal points
   function formatPrice(num: number) {
     const convertedNumber = usdToCurrency(num);
-    return convertedNumber > 1
-      ? parseFloat(convertedNumber.toFixed(2)).toLocaleString()
-      : convertedNumber.toFixed(7).toLocaleString();
+
+    if (convertedNumber > 1) {
+      return parseFloat(convertedNumber.toFixed(2)).toLocaleString();
+    } else {
+      return convertedNumber.toFixed(5).toLocaleString();
+    }
   }
 
   return (
     <tr className=" text-sm md:text-base font-medium cursor-pointer">
       <td className="dark:bg-dark-650 py-4 md:py-6">
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-5">
           <img src={icon} className="w-8 h-8" />
-          <span>{name}</span>
-          <span>{coinAcronym.toUpperCase()}</span>
+          <div className="flex flex-col gap-2 items-start">
+            <span>{name}</span>
+            <span>{coinAcronym.toUpperCase()}</span>
+          </div>
         </div>
       </td>
       <td>{`${currencySymbol}: ${formatPrice(price)}`}</td>
@@ -104,7 +124,11 @@ const Item = ({
         {currencySymbol}
         {formatNumber(volume24h)}
       </td>
-      <td>{circulatingSupply ? `${circulatingSupply + " " + coinAcronym.toUpperCase()}` : "sem acesso"}</td>
+      <td>
+        {circulatingSupply
+          ? `${formatNumber(circulatingSupply) + " " + coinAcronym.toUpperCase()}`
+          : "sem acesso"}
+      </td>
     </tr>
   );
 };

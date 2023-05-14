@@ -33,7 +33,7 @@ const MainTable = () => {
 
   return (
     <div className="overflow-x-auto font-poppins ">
-      <table className="w-full min-w-[1024px]">
+      <table className="w-full min-w-[1280px]">
         <thead>
           <tr className="text-sm font-medium">
             <th className="py-3 text-left">Name</th>
