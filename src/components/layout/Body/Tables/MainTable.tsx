@@ -35,7 +35,7 @@ const MainTable = () => {
     <div className="overflow-x-auto font-poppins ">
       <table className="w-full min-w-[1024px]">
         <thead>
-          <tr className="text-sm font-medium text-gray-500 uppercase">
+          <tr className="text-sm font-medium">
             <th className="py-3 text-left">Name</th>
             <th className="py-3">Price</th>
             <th className="py-3">1h%</th>
