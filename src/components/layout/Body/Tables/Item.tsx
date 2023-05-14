@@ -101,9 +101,9 @@ const Item = ({
   }
 
   return (
-    <tr className=" text-sm md:text-base font-medium cursor-pointer">
+    <tr className=" text-sm font-medium cursor-pointer">
       <td className="dark:bg-dark-650 py-4 md:py-6">
-        <div className="flex items-center gap-5">
+        <div className="flex items-center gap-3">
           <img src={icon} className="w-8 h-8" />
           <div className="flex flex-col gap-2 items-start">
             <span>{name}</span>

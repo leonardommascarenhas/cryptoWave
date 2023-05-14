@@ -54,7 +54,7 @@ thead th:nth-child(1) {
 }
 
 thead th:nth-child(2){
-  width: 10%
+  width: 12%
 }
 thead th:nth-child(3),
 thead th:nth-child(4),
@@ -68,19 +68,6 @@ thead th:nth-child(8){
   width: 17%
 }
 
-@media (max-width: 1023px) {
-  thead th:nth-child(3),
-  thead th:nth-child(4),
-  thead th:nth-child(5) {
-    width: calc(8% + 2.5%);
-  }
-
-  thead th:nth-child(6),
-  thead th:nth-child(7),
-  thead th:nth-child(8) {
-    width: calc(17% - 2.5%);
-  }
-}
 
 @layer components{
     .header-icon{
