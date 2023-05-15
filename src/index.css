@@ -24,7 +24,6 @@ table thead th {
   top: 0;
   z-index: 1;
   text-align: right;
-  cursor: pointer;
 }
 table td {
   width: 10px;
@@ -67,6 +66,21 @@ thead th:nth-child(7)
 thead th:nth-child(6),
 thead th:nth-child(8){
   width: 17%
+}
+
+@media screen and (max-width: 1240px) {
+
+  thead th:nth-child(3),
+  thead th:nth-child(4),
+  thead th:nth-child(5) {
+    width: 10%;
+  }
+
+  thead th:nth-child(6),
+  thead th:nth-child(7),
+  thead th:nth-child(8) {
+    width: 15%;
+  }
 }
 
 
