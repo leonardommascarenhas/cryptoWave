@@ -4,7 +4,7 @@ import Item from "./Item";
 
 const MainTable = () => {
   const { coinData } = useContext(QueryContext);
-  const [itemsToShow, setItemsToShow] = useState(30);
+  const [itemsToShow, setItemsToShow] = useState(50);
   const lastItemRef = useRef<HTMLTableRowElement>(null);
 
   const handleObserver = (entries: IntersectionObserverEntry[]) => {

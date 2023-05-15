@@ -24,6 +24,7 @@ table thead th {
   top: 0;
   z-index: 1;
   text-align: right;
+  cursor: pointer;
 }
 table td {
   width: 10px;
