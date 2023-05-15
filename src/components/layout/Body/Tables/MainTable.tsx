@@ -6,7 +6,6 @@ const MainTable = () => {
   const { coinData } = useContext(QueryContext);
   const [itemsToShow, setItemsToShow] = useState(50);
   const lastItemRef = useRef<HTMLTableRowElement>(null);
-  const [sortedData, setSortedData] = useState(coinData);
 
   const handleObserver = (entries: IntersectionObserverEntry[]) => {
     const target = entries[0];
@@ -33,10 +32,10 @@ const MainTable = () => {
   }, [itemsToShow]);
 
   return (
-    <div className="overflow-x-auto font-poppins xl:px-20 ">
+    <div className="md:px-6 xl:px-20 pt-4 overflow-x-auto font-poppins text-xs lg:text-sm ">
       <table className="w-full min-w-[800px]">
         <thead>
-          <tr className="text-sm font-medium">
+          <tr className="font-medium">
             <th className="py-3 text-left">Name</th>
             <th className="py-3">Price</th>
             <th className="py-3">1h%</th>

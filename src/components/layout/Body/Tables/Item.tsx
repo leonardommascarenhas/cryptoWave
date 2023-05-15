@@ -101,7 +101,7 @@ const Item = ({
   }
 
   return (
-    <tr className="group text-xs lg:text-sm font-medium cursor-pointer hover:bg-slate-100 dark:hover:bg-dark-500">
+    <tr className="group font-medium cursor-pointer hover:bg-slate-100 dark:hover:bg-dark-500">
       <td className="py-4 md:py-6 group-hover:bg-slate-100 dark:bg-dark-650 dark:group-hover:bg-dark-500">
         <div className="flex items-center gap-3">
           <img src={icon} className="w-8 h-8" />
