@@ -6,6 +6,18 @@ const MainTable = () => {
   const { coinData } = useContext(QueryContext);
   const [itemsToShow, setItemsToShow] = useState(50);
   const lastItemRef = useRef<HTMLTableRowElement>(null);
+  const [isAscending, setIsAscending] = useState<boolean>();
+  const [sortedData, setSortedData] = useState(coinData);
+
+  function handleSort(objectKey: string) {
+    const sortedArr = [...sortedData].sort((a, b) => {
+      if (a[objectKey] < b[objectKey]) return isAscending ? 1 : -1;
+      if (a[objectKey] > b[objectKey]) return isAscending ? -1 : 1;
+      return 0;
+    });
+    setSortedData(sortedArr);
+    setIsAscending(!isAscending);
+  }
 
   const handleObserver = (entries: IntersectionObserverEntry[]) => {
     const target = entries[0];
@@ -32,22 +44,38 @@ const MainTable = () => {
   }, [itemsToShow]);
 
   return (
-    <div className="md:px-6 xl:px-20 pt-4 overflow-x-auto font-poppins text-xs lg:text-sm ">
+    <div className="md:px-6 xl:px-20 mt-4 overflow-x-auto font-poppins text-xs lg:text-sm ">
       <table className="w-full min-w-[800px]">
         <thead>
           <tr className="font-medium">
-            <th className="py-3 text-left">Name</th>
-            <th className="py-3">Price</th>
-            <th className="py-3">1h%</th>
-            <th className="py-3">24h%</th>
-            <th className="py-3">7d%</th>
-            <th className="py-3">Market Cap</th>
-            <th className="py-3">Volume(24h)</th>
-            <th className="py-3">Circulating Supply</th>
+            <th className="py-3 text-left" onClick={() => handleSort("name")}>
+              Name
+            </th>
+            <th className="py-3" onClick={() => handleSort("current_price")}>
+              Price
+            </th>
+            <th className="py-3" onClick={() => handleSort("price_change_percentage_1h_in_currency")}>
+              1h%
+            </th>
+            <th className="py-3" onClick={() => handleSort("price_change_percentage_24h_in_currency")}>
+              24h%
+            </th>
+            <th className="py-3" onClick={() => handleSort("price_change_percentage_7d_in_currency")}>
+              7d%
+            </th>
+            <th className="py-3" onClick={() => handleSort("market_cap")}>
+              Market Cap
+            </th>
+            <th className="py-3" onClick={() => handleSort("market_cap_change_24h")}>
+              Volume(24h)
+            </th>
+            <th className="py-3" onClick={() => handleSort("total_supply")}>
+              Circulating Supply
+            </th>
           </tr>
         </thead>
         <tbody>
-          {coinData.slice(0, itemsToShow).map((coin: any, index: number) => (
+          {sortedData.slice(0, itemsToShow).map((coin: any, index: number) => (
             <Item
               key={coin.name}
               icon={coin.image}
