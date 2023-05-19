@@ -1,4 +1,3 @@
-
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -8,11 +7,11 @@ module.exports = {
   darkMode: 'class',
   theme: {
     extend: {
-       boxShadow: {
-        'dropdown':  '0 5px 30px rgba(0, 0, 0, 0.2), 0 0 15px rgba(0, 0, 0, 0.1), 0 0 10px rgba(255, 255, 255, 0.5)'
+      boxShadow: {
+        'dropdown': '0 5px 30px rgba(0, 0, 0, 0.2), 0 0 15px rgba(0, 0, 0, 0.1), 0 0 10px rgba(255, 255, 255, 0.5)'
       },
       colors: {
-        dark:{
+        dark: {
           '500': '#323546',
           '600': '#222430',
           '650': '#171924',
@@ -21,7 +20,7 @@ module.exports = {
         },
       },
       gridTemplateAreas: {
-        'headerDesktop' : [
+        'headerDesktop': [
           'headerBar',
           'headerNav'
         ]
@@ -29,28 +28,29 @@ module.exports = {
       gridTemplateRows: {
         'headerDesktop': '6fr 1fr'
       },
-      fontFamily:{
+      fontFamily: {
         roboto: ['Roboto', 'sans-serif'],
         poppins: ['Poppins', 'sans-serif']
       },
-      keyframes:{
-      rightToLeft: {
-          '0%': {transform: 'translateX(0)' },
-          '100%': {transform: 'translateX(-100%)' },
+      keyframes: {
+        rightToLeft: {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(-100%)' },
         },
         leftToRight: {
-          '0%': {transform: 'translateX(-100%)' },
-          '100%': {transform: 'translateX(0)' },
+          '0%': { transform: 'translateX(-100%)' },
+          '100%': { transform: 'translateX(0)' },
         },
+   
       },
-      animation:{
+      animation: {
         leftRight: 'leftToRight 0.4s ease-in-out',
         rightLeft: 'rightToLeft 0.4s ease-in-out'
       }
     },
   },
   plugins: [
-   require("tailwindcss-animate"),
-   require('@savvywombat/tailwindcss-grid-areas')
+    require("tailwindcss-animate"),
+    require('@savvywombat/tailwindcss-grid-areas')
   ],
 }

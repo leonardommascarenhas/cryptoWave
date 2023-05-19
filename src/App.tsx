@@ -5,6 +5,7 @@ import { useQueries } from "@tanstack/react-query";
 import { getTrendingCoins, getCoinData, getExchangeRates } from "./services/ApiCalls";
 import Header from "./components/layout/Header/header";
 import Body from "./components/layout/Body/Body";
+import ContactMeIcon from "./components/Buttons&Selects/CoinContactMe/ContactMeIcon";
 
 interface AppContextType {
   theme: string;
@@ -99,6 +100,7 @@ function App() {
           <div className={`flex flex-col min-h-screen font-roboto ${theme} dark:text-white`}>
             <Header />
             <Body />
+            <ContactMeIcon image1="src\Images\Hi.png" image2="src\Images\Cool.png" />
           </div>
         )}
       </QueryContext.Provider>
