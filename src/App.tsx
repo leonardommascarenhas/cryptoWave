@@ -1,11 +1,11 @@
-// App.tsx
-
 import React, { createContext, useState } from "react";
 import { useQueries } from "@tanstack/react-query";
 import { getTrendingCoins, getCoinData, getExchangeRates } from "./services/ApiCalls";
 import Header from "./components/layout/Header/header";
 import Body from "./components/layout/Body/Body";
 import ContactMeIcon from "./components/Buttons&Selects/CoinContactMe/ContactMeIcon";
+import HiImage from "../src/assets/Images/Hi.png";
+import CoolImage from "../src/assets/Images/Cool.png";
 
 interface AppContextType {
   theme: string;
@@ -100,7 +100,7 @@ function App() {
           <div className={`flex flex-col min-h-screen font-roboto ${theme} dark:text-white`}>
             <Header />
             <Body />
-            <ContactMeIcon image1="public/Images/Hi.png" image2="public/Images/Cool.png" />
+            <ContactMeIcon image1={HiImage} image2={CoolImage} />
           </div>
         )}
       </QueryContext.Provider>
