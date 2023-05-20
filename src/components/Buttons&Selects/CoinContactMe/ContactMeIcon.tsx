@@ -7,7 +7,7 @@ interface Props {
 
 const ContactMeIcon = ({ image1, image2 }: Props) => {
   return (
-    <div className="group w-16 fixed bottom-24 right-4 transition-all duration-300 [transform-style:preserve-3d] hover:[transform:rotateY(180deg)]">
+    <div className="group w-16 fixed bottom-24 right-4 transition-all duration-300 [transform-style:preserve-3d] hover:[transform:rotateY(180deg)] cursor-pointer">
       <div className="absolute inset-0">
         <img
           src={image1}
