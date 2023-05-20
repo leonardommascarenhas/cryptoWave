@@ -11,7 +11,6 @@ const ContactMeIcon = ({ image1, image2 }: Props) => {
       <div className="absolute inset-0">
         <img
           src={image1}
-          alt=""
           className="group-hover:opacity-0 fill-mode-forwards transition-opacity duration-175 rounded-full"
         />
       </div>
