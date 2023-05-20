@@ -100,7 +100,7 @@ function App() {
           <div className={`flex flex-col min-h-screen font-roboto ${theme} dark:text-white`}>
             <Header />
             <Body />
-            <ContactMeIcon image1="../public/Images/Hi.png" image2="../public/Images/Cool.png" />
+            <ContactMeIcon image1="/public/Images/Hi.png" image2="/public/Images/Cool.png" />
           </div>
         )}
       </QueryContext.Provider>
