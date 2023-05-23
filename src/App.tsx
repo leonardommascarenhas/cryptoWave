@@ -52,10 +52,11 @@ function App() {
 
   useEffect(() => {
     const handleScroll = () => {
+      //This checks the current position of the scroll
       const scrollPosition = window.scrollY;
-      const windowHeight = window.innerHeight - 400;
+      const scrollAmmount = 80;
 
-      if (scrollPosition > windowHeight) {
+      if (scrollPosition > scrollAmmount) {
         setHasScrolled(true);
       } else {
         setHasScrolled(false);
