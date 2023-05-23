@@ -1,4 +1,4 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useState, useEffect } from "react";
 import { useQueries } from "@tanstack/react-query";
 import { getTrendingCoins, getCoinData, getExchangeRates } from "./services/ApiCalls";
 import Header from "./components/layout/Header/header";
@@ -48,6 +48,27 @@ function App() {
   const [currency, setCurrency] = useState<string>("brl");
   const [currencySymbol, setCurrencySymbol] = useState<string>("R$");
   const [BTCToCurrency, setBTCToCurrency] = useState<number>(0);
+  const [hasScrolled, setHasScrolled] = useState<boolean>(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      const windowHeight = window.innerHeight - 400;
+
+      if (scrollPosition > windowHeight) {
+        setHasScrolled(true);
+      } else {
+        setHasScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   const queries = useQueries({
     queries: [
       {
@@ -97,10 +118,10 @@ function App() {
         {isLoading ? (
           <p>Loading...</p>
         ) : (
-          <div className={`flex flex-col min-h-screen font-roboto ${theme} dark:text-white`}>
+          <div className={`flex flex-col min-h-screen font-roboto ${theme} dark:text-white overflow-auto`}>
             <Header />
             <Body />
-            <ContactMeIcon image1={HiImage} image2={CoolImage} />
+            {hasScrolled && <ContactMeIcon image1={HiImage} image2={CoolImage} />}
           </div>
         )}
       </QueryContext.Provider>
