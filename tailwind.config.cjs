@@ -32,20 +32,24 @@ module.exports = {
         roboto: ['Roboto', 'sans-serif'],
         poppins: ['Poppins', 'sans-serif']
       },
-      keyframes: {
-        rightToLeft: {
-          '0%': { transform: 'translateX(0)' },
-          '100%': { transform: 'translateX(-100%)' },
-        },
-        leftToRight: {
-          '0%': { transform: 'translateX(-100%)' },
-          '100%': { transform: 'translateX(0)' },
-        },
-   
-      },
+     keyframes: {
+      rightToLeft: {
+        '0%': { transform: 'translateX(0)' },
+        '100%': { transform: 'translateX(-100%)' },
+   },
+       leftToRight: {
+        '0%': { transform: 'translateX(-100%)' },
+    '   100%': { transform: 'translateX(0)' },
+    },
+        scale: {
+        '0%': { transform: 'scale(0)' },
+        '100%': { transform: 'scale(1)' },
+    },
+},
       animation: {
         leftRight: 'leftToRight 0.4s ease-in-out',
-        rightLeft: 'rightToLeft 0.4s ease-in-out'
+        rightLeft: 'rightToLeft 0.4s ease-in-out',
+        scale: "scale 0.1s ease-in-out",
       }
     },
   },

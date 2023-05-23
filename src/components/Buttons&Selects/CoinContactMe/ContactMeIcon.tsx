@@ -7,11 +7,11 @@ interface Props {
 
 const ContactMeIcon = ({ image1, image2 }: Props) => {
   return (
-    <div className="group w-16 fixed bottom-20 right-4 transition-all duration-175 [transform-style:preserve-3d] hover:[transform:rotateY(180deg)]">
+    <div className="group w-16 fixed bottom-20 right-4 transition-all duration-100 [transform-style:preserve-3d] hover:[transform:rotateY(180deg)] animate-scale">
       <div className="absolute inset-0">
         <img
           src={image1}
-          className="group-hover:opacity-0 fill-mode-forwards transition-opacity duration-175 rounded-full"
+          className="group-hover:opacity-0 fill-mode-forwards transition-opacity duration-150 rounded-full"
         />
       </div>
       <div className="absolute inset-0 [transform:rotateY(180deg)] [backface-visibility:hidden]">
