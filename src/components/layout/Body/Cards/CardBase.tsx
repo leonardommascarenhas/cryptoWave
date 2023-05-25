@@ -24,7 +24,7 @@ interface gainersLosers {
 
 const CardsDisplay = () => {
   return (
-    <div className="hidden lg:flex justify-center gap-2 mt-4 px-4">
+    <div className="hidden lg:flex justify-center gap-2 mt-4 px-8">
       <CardBase />
       <CardBase />
       <CardBase />
@@ -48,7 +48,7 @@ const CardBase = React.memo(() => {
   const gainersLosersArray = gainersByPercentageSorting(coinData);
 
   return (
-    <article className="h-52 w-1/3 flex items-center dark:text-white text-base font-semibold  ">
+    <article className="px-1 h-52 w-1/3 flex items-center dark:text-white text-base font-semibold  ">
       <Swiper pagination={{ clickable: true }} modules={[Pagination, Autoplay]} autoplay={true}>
         <SwiperSlide className="trendingSlides">
           <CardTitle emoji="🔥" title="Trending" />

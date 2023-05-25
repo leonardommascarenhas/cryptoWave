@@ -110,6 +110,6 @@ thead th:nth-child(8){
         @apply w-full h-full rounded-lg
     }
     .trendingSlides{
-        @apply flex flex-col justify-center gap-4 bg-white dark:bg-dark-500 px-6
+        @apply flex flex-col justify-center gap-4 bg-white dark:bg-dark-600 px-6
     }
 }
