@@ -1,4 +1,4 @@
-import { useContext, useMemo } from "react";
+import React, { useContext, useMemo } from "react";
 import { AppContext, QueryContext } from "../../../../App";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper";
@@ -32,9 +32,10 @@ const CardsDisplay = () => {
   );
 };
 
-const CardBase = () => {
+const CardBase = React.memo(() => {
   const { currency, currencySymbol } = useContext(AppContext);
   const { trending, coinData, btcToExchange } = useContext(QueryContext);
+
   function gainersByPercentageSorting(coinData: any) {
     const gainersLosers = useMemo(
       () =>
@@ -43,9 +44,9 @@ const CardBase = () => {
     );
     return gainersLosers;
   }
+
   const gainersLosersArray = gainersByPercentageSorting(coinData);
-  console.log(coinData);
-  console.log(gainersLosersArray);
+
   return (
     <article className="h-52 w-1/3 flex items-center dark:text-white text-base font-semibold  ">
       <Swiper pagination={{ clickable: true }} modules={[Pagination, Autoplay]} autoplay={true}>
@@ -104,6 +105,6 @@ const CardBase = () => {
       </Swiper>
     </article>
   );
-};
+});
 
 export default CardsDisplay;
