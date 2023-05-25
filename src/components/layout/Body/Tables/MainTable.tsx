@@ -45,7 +45,7 @@ const MainTable = () => {
 
   return (
     <div className="w-full flex justify-center items-center">
-      <div className=" w-[95%] md:px-6 md:py-6 mt-4 overflow-x-auto font-poppins text-xs lg:text-sm bg-white dark:bg-dark-600 rounded-md">
+      <div className="lg:w-[95%] md:px-6 py-3 md:py-6 mt-4 overflow-x-auto font-poppins text-xs lg:text-sm bg-white dark:bg-dark-600 lg:rounded-md">
         <table className="w-full min-w-[800px]">
           <thead>
             <tr className="font-medium">
