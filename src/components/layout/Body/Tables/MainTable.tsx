@@ -2,6 +2,11 @@ import { useState, useRef, useEffect, useContext } from "react";
 import { QueryContext } from "../../../../App";
 import Item from "./Item";
 
+/* 
+Make sure the first child of every row to match the exact color of the table
+for the sticky effect be cover the other cells on smaller devices 
+*/
+
 const MainTable = () => {
   const { coinData } = useContext(QueryContext);
   const [itemsToShow, setItemsToShow] = useState(50);
@@ -44,35 +49,21 @@ const MainTable = () => {
   }, [itemsToShow]);
 
   return (
-    <div className="w-full flex justify-center items-center">
-      <div className="lg:w-[95%] px-3 md:px-6 py-3 md:py-6 mt-4 overflow-x-auto font-poppins text-xs lg:text-sm bg-white dark:bg-dark-600 lg:rounded-md">
+    <div className="w-full px-3 flex justify-center items-center">
+      <div className="lg:w-[95%]  mt-4 overflow-x-auto font-poppins text-xs lg:text-sm bg-white dark:bg-dark-600 lg:rounded-md">
         <table className="w-full min-w-[800px]">
           <thead>
-            <tr className="font-medium">
-              <th className="py-3 text-left" onClick={() => handleSort("name")}>
+            <tr className="font-medium [&>*]:border-b [&>*]:border-b-dark-500 [&>*]:py-4 [&>*:first-child]:pl-6 [&>*:last-child]:pr-3">
+              <th className="text-left" onClick={() => handleSort("name")}>
                 Name
               </th>
-              <th className="py-3" onClick={() => handleSort("current_price")}>
-                Price
-              </th>
-              <th className="py-3" onClick={() => handleSort("price_change_percentage_1h_in_currency")}>
-                1h%
-              </th>
-              <th className="py-3" onClick={() => handleSort("price_change_percentage_24h_in_currency")}>
-                24h%
-              </th>
-              <th className="py-3" onClick={() => handleSort("price_change_percentage_7d_in_currency")}>
-                7d%
-              </th>
-              <th className="py-3" onClick={() => handleSort("market_cap")}>
-                Market Cap
-              </th>
-              <th className="py-3" onClick={() => handleSort("market_cap_change_24h")}>
-                Volume(24h)
-              </th>
-              <th className="py-3" onClick={() => handleSort("total_supply")}>
-                Circulating Supply
-              </th>
+              <th onClick={() => handleSort("current_price")}>Price</th>
+              <th onClick={() => handleSort("price_change_percentage_1h_in_currency")}>1h%</th>
+              <th onClick={() => handleSort("price_change_percentage_24h_in_currency")}>24h%</th>
+              <th onClick={() => handleSort("price_change_percentage_7d_in_currency")}>7d%</th>
+              <th onClick={() => handleSort("market_cap")}>Market Cap</th>
+              <th onClick={() => handleSort("market_cap_change_24h")}>Volume(24h)</th>
+              <th onClick={() => handleSort("total_supply")}>Circulating Supply</th>
             </tr>
           </thead>
           <tbody>
