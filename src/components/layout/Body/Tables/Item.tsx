@@ -59,6 +59,9 @@ const Item = ({
     //check if the number is negative to give the sign
     const sign = Math.sign(num) === -1 ? "-" : "";
 
+    if (absNum >= 1000000000000000) {
+      return sign + (absNum / 1000000000).toFixed(2) + "Q";
+    }
     if (absNum >= 1000000000000) {
       return sign + (absNum / 1000000000).toFixed(2) + "T";
     }
@@ -86,6 +89,9 @@ const Item = ({
       return formatWithMagnitude(convertedNumber);
     } else {
       if (convertedNumber > 1) {
+        if (convertedNumber >= 1000000000000000) {
+          return convertedNumber.toExponential(3);
+        }
         return parseFloat(convertedNumber.toFixed(2)).toLocaleString();
       } else {
         return parseFloat(convertedNumber.toFixed(8)).toLocaleString();
@@ -104,13 +110,13 @@ const Item = ({
     if (convertedNumber > 1) {
       return parseFloat(convertedNumber.toFixed(2)).toLocaleString();
     } else {
-      return convertedNumber.toFixed(5).toLocaleString();
+      return convertedNumber.toFixed(8).toLocaleString();
     }
   }
 
   return (
-    <tr className="group font-medium cursor-pointer hover:bg-slate-100 dark:hover:bg-dark-500 [&>*:first-child]:pl-6 [&>*:last-child]:pr-6 [&>*]:dark:border-b [&>*]:dark:border-gray-700 ">
-      <td className="py-4 md:py-6 group-hover:bg-slate-100 dark:bg-dark-600 dark:group-hover:bg-dark-500">
+    <tr className="group font-medium cursor-pointer bg-white dark:bg-dark-600 hover:bg-slate-200 dark:hover:bg-dark-500 [&>*:first-child]:pl-6 [&>*:last-child]:pr-6 [&>*]:dark:border-b [&>*]:dark:border-gray-700 ">
+      <td className="py-4 md:py-6 bg-white group-hover:bg-slate-200 dark:bg-dark-600 dark:group-hover:bg-dark-500">
         <div className="flex items-center gap-3">
           <img src={icon} className="w-8 h-8" />
           <div className="flex flex-col gap-2 items-start">
