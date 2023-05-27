@@ -49,9 +49,11 @@ const MainTable = () => {
     };
   }, [itemsToShow]);
 
+  console.log(sortedData);
+
   return (
     <div className="w-full px-3 flex justify-center items-center">
-      <div className="lg:w-[95%]  mt-4 overflow-x-auto font-poppins text-xs lg:text-sm bg-white dark:bg-dark-600 lg:rounded-md">
+      <div className="lg:w-[95%]  mt-4 overflow-x-auto font-poppins text-xs lg:text-sm bg-white dark:bg-dark-600 rounded-md">
         <table className="w-full min-w-[800px]">
           <TableHeader handleSort={handleSort} />
           <tbody>

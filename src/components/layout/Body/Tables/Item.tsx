@@ -75,7 +75,11 @@ const Item = ({
   }
 
   // Format a number to a string with commas and/or decimal points
-  function formatNumber(num: number) {
+  function formatNumber(num: number | null) {
+    if (num === null || isNaN(num)) {
+      return "sem acesso";
+    }
+
     const convertedNumber = usdToCurrency(num);
 
     if (isSmallScreen) {
@@ -90,7 +94,11 @@ const Item = ({
   }
 
   // Format a price as a string with commas and decimal points
-  function formatPrice(num: number) {
+  function formatPrice(num: number | null) {
+    if (num === null || isNaN(num)) {
+      return "sem acesso";
+    }
+
     const convertedNumber = usdToCurrency(num);
 
     if (convertedNumber > 1) {
