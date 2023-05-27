@@ -52,18 +52,18 @@ const Item = ({
     return (num / btcToExchange.rates.usd.value) * btcToExchange.rates[currency].value;
   }
 
-  // Format a large number with magnitude (K, M, B, T)
-  function formatWithMagnitude(num: number): string {
+  // Format a large number with magnitude (K, M, B, T, Q)
+  function formatWithMagnitude(num: number) {
     const absNum = Math.abs(num);
 
-    //check if the number is negative to give the sign
+    // Check if the number is negative to give the sign
     const sign = Math.sign(num) === -1 ? "-" : "";
 
     if (absNum >= 1000000000000000) {
-      return sign + (absNum / 1000000000).toFixed(2) + "Q";
+      return sign + (absNum / 1000000000000000).toFixed(0) + "Q";
     }
     if (absNum >= 1000000000000) {
-      return sign + (absNum / 1000000000).toFixed(2) + "T";
+      return sign + (absNum / 1000000000000).toFixed(1) + "T";
     }
     if (absNum >= 1000000000) {
       return sign + (absNum / 1000000000).toFixed(2) + "B";
@@ -85,13 +85,10 @@ const Item = ({
 
     const convertedNumber = usdToCurrency(num);
 
-    if (isSmallScreen) {
+    if (isSmallScreen || convertedNumber >= 10000000000000) {
       return formatWithMagnitude(convertedNumber);
     } else {
       if (convertedNumber > 1) {
-        if (convertedNumber >= 1000000000000000) {
-          return convertedNumber.toExponential(3);
-        }
         return parseFloat(convertedNumber.toFixed(2)).toLocaleString();
       } else {
         return parseFloat(convertedNumber.toFixed(8)).toLocaleString();
@@ -115,7 +112,7 @@ const Item = ({
   }
 
   return (
-    <tr className="group font-medium cursor-pointer bg-white dark:bg-dark-600 hover:bg-slate-200 dark:hover:bg-dark-500 [&>*:first-child]:pl-6 [&>*:last-child]:pr-6 [&>*]:dark:border-b [&>*]:dark:border-gray-700 ">
+    <tr className="group font-medium cursor-pointer bg-white dark:bg-dark-600 hover:bg-slate-200 dark:hover:bg-dark-500 [&>*:first-child]:pl-4 [&>*:last-child]:pr-4 [&>*]:dark:border-b [&>*]:dark:border-gray-700 ">
       <td className="py-4 md:py-6 bg-white group-hover:bg-slate-200 dark:bg-dark-600 dark:group-hover:bg-dark-500">
         <div className="flex items-center gap-3">
           <img src={icon} className="w-8 h-8" />
