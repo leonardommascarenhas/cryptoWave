@@ -53,7 +53,7 @@ const MainTable = () => {
 
   return (
     <div className="w-full px-3 flex justify-center items-center">
-      <div className="lg:w-[95%]  mt-4 overflow-x-auto font-poppins text-xs xl:text-sm bg-white dark:bg-dark-600 rounded-md">
+      <div className="lg:w-[95%] mt-4 overflow-x-auto font-poppins text-xs xl:text-sm bg-white dark:bg-dark-600 rounded-md">
         <table className="w-full min-w-[920px]">
           <TableHeader handleSort={handleSort} />
           <tbody>

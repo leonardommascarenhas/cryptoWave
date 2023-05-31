@@ -25,7 +25,7 @@ const Menu = ({ toggleMenu, setIsActive }: Props) => {
 
   return (
     <div
-      className={`-translate-x-full min-h-screen flex flex-col items-center w-full absolute top-0 left-0 z-50 bg-gray-100 text-lg font-roboto font-medium ${animateClass} lg:animate-rightLeft lg:hidden fill-mode-forwards dark:bg-dark-650`}
+      className={`-translate-x-full min-h-screen flex flex-col items-center w-full absolute top-0 left-0 z-50 bg-gray-100 text-lg font-medium ${animateClass} lg:animate-rightLeft lg:hidden fill-mode-forwards dark:bg-dark-650`}
     >
       <div className="w-full flex justify-between py-1 pl-1 pr-6 border-b">
         <Logo />

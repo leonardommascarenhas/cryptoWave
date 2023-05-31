@@ -48,7 +48,7 @@ const CardBase = React.memo(() => {
   const gainersLosersArray = gainersByPercentageSorting(coinData);
 
   return (
-    <article className="px-1 h-52 w-1/3 flex items-center dark:text-white text-base font-semibold  ">
+    <article className="px-1 h-52 w-1/3 flex items-center dark:text-white font-medium">
       <Swiper pagination={{ clickable: true }} modules={[Pagination, Autoplay]} autoplay={true}>
         <SwiperSlide className="trendingSlides">
           <CardTitle emoji="🔥" title="Trending" />
@@ -56,11 +56,11 @@ const CardBase = React.memo(() => {
             {trending.map(({ item: { small, name, price_btc } }: TrendingItem, index: number) => (
               <li className="flex items-center justify-between gap-3">
                 <div className="flex items-center gap-2">
-                  <span className="text-xs text-gray-400 font-semibold">{index + 1}</span>
+                  <span className="text-xs text-gray-400 ">{index + 1}</span>
                   <img src={small} alt="" className="w-4 h-4 rounded-full" />
                   <h3>{name}</h3>
                 </div>
-                <div className="text-xs">{`${currencySymbol}: ${parseFloat(
+                <div className="text-xs font-semibold">{`${currencySymbol}: ${parseFloat(
                   (price_btc * btcToExchange.rates[currency].value).toFixed(6)
                 )}`}</div>
               </li>
@@ -74,7 +74,7 @@ const CardBase = React.memo(() => {
               .map(({ image, id, price_change_percentage_24h }: gainersLosers, index: number) => (
                 <li className="flex items-center justify-between gap-3">
                   <div className="flex items-center gap-2">
-                    <span className="text-xs text-gray-400 font-semibold">{index + 1}</span>
+                    <span className="text-xs text-gray-400 ">{index + 1}</span>
                     <img src={image} alt="" className="w-4 h-4 rounded-full" />
                     <h3>{id}</h3>
                   </div>
@@ -93,7 +93,7 @@ const CardBase = React.memo(() => {
               .map(({ image, id, price_change_percentage_24h }: gainersLosers, index: number) => (
                 <li className="flex items-center justify-between gap-3">
                   <div className="flex items-center gap-2">
-                    <span className="text-xs text-gray-400 font-semibold">{index + 1}</span>
+                    <span className="text-xs text-gray-400 ">{index + 1}</span>
                     <img src={image} alt="" className="w-4 h-4 rounded-full" />
                     <h3>{id}</h3>
                   </div>

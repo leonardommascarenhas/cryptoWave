@@ -7,7 +7,7 @@ interface Props {
 const TableHeader = ({ handleSort }: Props) => {
   return (
     <thead>
-      <tr className="font-medium py-4 [&>*]:py-4 [&>*:first-child]:pl-6 [&>*:last-child]:pr-3 [&>*]:border-b [&>*]:border-gray-700 [&>*]:cursor-pointer">
+      <tr className="py-4 [&>*]:py-4 [&>*:first-child]:pl-6 [&>*:last-child]:pr-3 [&>*]:border-b [&>*]:border-gray-700 [&>*]:cursor-pointer">
         <th className="text-left border-b border-gray-700" onClick={() => handleSort("name")}>
           Name
         </th>

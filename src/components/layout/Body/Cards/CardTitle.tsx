@@ -5,7 +5,7 @@ interface Props {
 
 const CardTitle = ({ emoji, title }: Props) => {
   return (
-    <div className="-ml-2 flex items-center justify-between">
+    <div className="-ml-2 flex items-center justify-between font-semibold">
       <div className="flex gap-2">
         <span className="text-xl">{emoji}</span>
         <h3 className="text-xl">{title}</h3>

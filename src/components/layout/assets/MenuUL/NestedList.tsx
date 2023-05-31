@@ -58,7 +58,7 @@ const NestedList = ({ title, nestedItems }: Props) => {
       </div>
       <div className="hidden group-hover:block absolute -bottom-0 arrow-up  border-b-gray-50 dark:border-b-dark-700"></div>
       <ul
-        className={`relative overflow-hidden lg:flex lg:flex-col lg:items-center lg:absolute lg:top-16 lg:bg-white lg:z-30 group-hover:lg:h-auto lg:shadow-lg transition-all duration-75 ease-in-out dark:lg:bg-dark-800 dark:lg:shadow-dropdown ${
+        className={`relative overflow-hidden lg:flex lg:flex-col lg:items-center lg:absolute lg:top-16 lg:bg-white lg:z-30 group-hover:lg:h-auto lg:shadow-md transition-all duration-75 ease-in-out dark:lg:bg-dark-800  ${
           isActive ? "h-auto" : "h-0"
         }`}
       >

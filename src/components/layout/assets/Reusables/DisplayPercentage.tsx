@@ -11,7 +11,7 @@ const DisplayPercentage = ({ num = 0 }: Props) => {
         <div
           className={`flex items-center justify-end gap-1 ${
             num == 0 ? "dark:text-white" : num > 0 ? "text-green-600" : "text-red-700"
-          } font-bold`}
+          } font-semibold`}
         >
           <BsTriangleFill size={7} className={num == 0 ? "hidden" : num > 0 ? "" : "rotate-180"} />
           {num?.toFixed(2)}
