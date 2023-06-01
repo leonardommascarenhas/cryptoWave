@@ -14,7 +14,7 @@ interface Props {
 export const HeaderBar = ({ cryptos, exchanges, totalVolume, dayVolume, marketDominance }: Props) => {
   const { currencySymbol } = useContext(AppContext);
   return (
-    <div className=" h-14 px-2 flex justify-between items-center lg:grid-in-headerBar  border-b dark:border-b-gray-800 overflow-x-auto w-full whitespace-nowrap text-xs text-zinc-400 font-semibold gap-2">
+    <div className=" h-14 px-2 flex justify-between items-center lg:grid-in-headerBar border-b dark:border-b-gray-800 overflow-x-auto w-full whitespace-nowrap text-xs text-zinc-400 gap-2">
       <div className="flex gap-4">
         <p>
           Cryptos: <span className="text-blue-500">{cryptos}</span>

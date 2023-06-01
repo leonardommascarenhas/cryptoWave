@@ -52,9 +52,9 @@ const MainTable = () => {
   console.log(sortedData);
 
   return (
-    <div className="w-full px-3">
-      <div className="lg:w-[95%]  mt-4 overflow-x-auto font-poppins text-xs xl:text-sm bg-white dark:bg-dark-600 rounded-md">
-        <table className="w-full lg:w-[95%] xl:w-[90%] min-w-[920px] max-w-[1840px]">
+    <div className="w-full lg:w-[95%] xl:w-[90%]">
+      <div className="mt-4 overflow-x-auto font-poppins text-xs xl:text-sm bg-white dark:bg-dark-600 rounded-md">
+        <table className="w-full min-w-[920px] max-w-[1840px]">
           <TableHeader handleSort={handleSort} />
           <tbody>
             {sortedData.slice(0, itemsToShow).map((coin: any, index: number) => (

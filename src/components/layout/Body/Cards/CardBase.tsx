@@ -24,7 +24,7 @@ interface gainersLosers {
 
 const CardsDisplay = () => {
   return (
-    <div className="hidden w-full lg:flex mt-4 px-2 lg:w-[95%] xl:w-[90%] min-w-[920px] max-w-[1840px]">
+    <div className="hidden w-full lg:flex mt-4 lg:w-[95%] xl:w-[90%] min-w-[920px] max-w-[1840px]">
       <CardBase />
       <CardBase />
       <CardBase />
