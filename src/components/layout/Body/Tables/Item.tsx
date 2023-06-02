@@ -1,6 +1,7 @@
 import { useContext, useState, useEffect } from "react";
 import DisplayPercentage from "../../assets/Reusables/DisplayPercentage";
-import { AppContext, QueryContext } from "../../../../App";
+import { AppContext } from "../../../../services/AppContextProvider";
+import { QueryContext } from "../../../../App";
 
 interface Props {
   icon: string;

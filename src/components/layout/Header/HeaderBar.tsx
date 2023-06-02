@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { AppContext } from "../../../App";
+import { AppContext } from "../../../services/AppContextProvider";
 import ThemeToggle from "../../Buttons&Selects/ThemeToggle";
 import CurrencySelect from "../../Buttons&Selects/CurrencySelect";
 

@@ -29,7 +29,7 @@ const ContactMeModal = () => {
           <div className="bg-black opacity-70 fixed inset-0 z-40" onClick={handleClose}></div>
           <div
             ref={modalRef}
-            className={`flex flex-col lg:flex-row justify-center items-center gap-3 z-50 w-11/12 sm:w-3/4 md:w-2/3 lg:w-1/2 xl:w-1/3 animate-modalOpen a`}
+            className={`flex flex-col lg:flex-row justify-center items-center gap-3 z-50 w-11/12 sm:w-3/4 md:w-2/3 lg:w-1/2 xl:w-1/3 animate-modalOpen`}
           >
             <img className="rounded-full w-16" src={Hi} alt="Hi" />
             <div className="w-full h-[50vh] sm:h-[70vh] md:h-[60vh] bg-slate-500 shadow-lg rounded-xl pt-24">

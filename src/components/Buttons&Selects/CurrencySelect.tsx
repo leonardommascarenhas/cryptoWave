@@ -1,5 +1,5 @@
 import { useContext, useEffect } from "react";
-import { AppContext } from "../../App";
+import { AppContext } from "../../services/AppContextProvider";
 const CurrencySelect = () => {
   const { currency, setCurrency, setCurrencySymbol } = useContext(AppContext);
 

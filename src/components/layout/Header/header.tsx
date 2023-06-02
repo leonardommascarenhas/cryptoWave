@@ -7,7 +7,7 @@ import { HeaderBar } from "./HeaderBar";
 import MobileMenu from "../assets/MenuUL/MobileMenu";
 import Logo from "../assets/Logo";
 import MenuUL from "../assets/MenuUL/MenuUL";
-import { AppContext } from "../../../App";
+import { AppContext } from "../../../services/AppContextProvider";
 import { getGlobalCoinData } from "../../../services/ApiCalls";
 
 const Header: React.FC = () => {

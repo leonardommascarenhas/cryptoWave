@@ -1,5 +1,6 @@
 import React, { useContext, useMemo } from "react";
-import { AppContext, QueryContext } from "../../../../App";
+import { AppContext } from "../../../../services/AppContextProvider";
+import { QueryContext } from "../../../../App";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper";
 import DisplayPercentage from "../../assets/Reusables/DisplayPercentage";
