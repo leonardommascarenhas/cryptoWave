@@ -1,5 +1,3 @@
-import React from "react";
-
 const NotificationBall = () => {
   return (
     <div className="group-hover:hidden absolute top-1 -right-1 w-4 h-4 rounded-full cursor-pointer">
