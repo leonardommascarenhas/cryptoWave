@@ -46,7 +46,7 @@ module.exports = {
         },
         modalClose: {
           "0%": { opacity: "1", transform: "scale(1)" },
-          "100%": { opacity: "0", transform: "scale(0)" },
+          "100%": { opacity: "0", transform: "scale(0.2)" },
         },
       },
       animation: {
