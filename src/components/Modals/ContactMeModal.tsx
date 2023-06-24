@@ -34,14 +34,14 @@ const ContactMeModal = () => {
             <img className="rounded-full w-16" src={Hi} alt="Hi" />
             <div className="w-full bg-slate-500 shadow-lg rounded-xl">
               <div className="opacity-0 animate-rightLeft delay-300 fill-mode-forwards p-4 flex flex-col gap-3">
-                <p className="text-white">Bem-vindo à CryptoWave!</p>
+                <p className="">Bem-vindo à CryptoWave!</p>
 
-                <p className="text-white">
+                <p className="">
                   Esse site foi montado com a API gratuita da CoinGecko. A versão gratuita dessa API só nos
                   permite realizar 10 queries por minuto.
                 </p>
 
-                <p className="text-white">
+                <p className="">
                   Enquanto você navega pelo site, é bom lembrar que algumas coisas podem ficar temporariamente
                   indisponíveis se a gente passar do limite da API.
                 </p>
