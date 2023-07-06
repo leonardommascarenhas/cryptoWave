@@ -3,13 +3,16 @@ import { QueryContext } from "../../../../App";
 import Item from "./Item";
 import TableHeader from "./TableHeader";
 
+interface Props{
+  coinData: any[]
+}
+
 /* 
 Make sure the first child of every row to match the exact color of the table
 for the sticky effect be cover the other cells on smaller devices 
 */
 
-const MainTable = () => {
-  const { coinData } = useContext(QueryContext);
+const MainTable = ({coinData}: Props) => {
   const [itemsToShow, setItemsToShow] = useState(50);
   const lastItemRef = useRef<HTMLTableRowElement>(null);
   const [isAscending, setIsAscending] = useState<boolean>();

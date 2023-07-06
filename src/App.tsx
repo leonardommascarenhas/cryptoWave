@@ -1,8 +1,9 @@
 import { createContext, useState, useEffect, useContext } from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { useQueries } from "@tanstack/react-query";
 import { getTrendingCoins, getCoinData, getExchangeRates } from "./services/ApiCalls";
 import Header from "./components/layout/Header/header";
-import Body from "./components/layout/Body/Body";
+import Body from "./pages/Body";
 import ContactMeIcon from "./components/Buttons&Selects/CoinContactMe/ContactMeIcon";
 import HiImage from "../src/assets/Images/Hi.png";
 import CoolImage from "../src/assets/Images/Cool.png";
@@ -84,9 +85,13 @@ function App() {
         <p>Loading...</p>
       ) : (
         <div className={`flex flex-col min-h-screen font-roboto ${theme} dark:text-white overflow-auto`}>
-          <Header />
-          <Body />
-          {hasScrolled && <ContactMeIcon image1={HiImage} image2={CoolImage} />}
+          <Router>
+            <Header />
+            <Routes>
+              <Route path="/" element={<Body />} />
+            </Routes>
+            {hasScrolled && <ContactMeIcon image1={HiImage} image2={CoolImage} />}
+          </Router>
         </div>
       )}
     </QueryContext.Provider>
